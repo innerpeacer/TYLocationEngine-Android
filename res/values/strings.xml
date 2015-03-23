@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">云图定位</string>
+    <string name="map_activity_title">云图地图</string>
+    <string name="map_activity_location">云图地图定位</string>
+        <string name="activity_location">云图定位</string>
+    
+    <string name="map_route_activity_title">地图导航 Demo</string>
+    <string name="map_callout_activity_title">地图Callout Demo</string>
+    <string name="location_activity_title">云图定位</string>
+    <string name="btn_set_start">设为起点</string>
+    <string name="btn_set_end">设为终点</string>
+    <string name="btn_request_route">请求导航</string>
+    <string name="btn_reset">重置</string>
+
+</resources>
