@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.nephogram.data.NPLocalPoint;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import cn.nephogram.data.NPLocalPoint;
 
 public class NPBeaconDBAdapter {
 	static final String TAG = NPBeaconDBAdapter.class.getSimpleName();
@@ -28,6 +28,9 @@ public class NPBeaconDBAdapter {
 	public NPBeaconDBAdapter(Context ctx, String path) {
 		this.context = ctx;
 		dbFile = new File(path);
+
+		Log.i(TAG, path);
+
 		db = SQLiteDatabase.openOrCreateDatabase(dbFile, null);
 	}
 

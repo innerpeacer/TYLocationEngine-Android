@@ -37,7 +37,6 @@ public class NephogramMapActivity extends BaseMapViewActivity {
 		if (poi != null) {
 			mapView.highlightPoi(poi);
 		}
-
 		Log.i(TAG, mapView.getScale() + "");
 	}
 

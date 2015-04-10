@@ -88,6 +88,10 @@ public class NPLocationManager implements NPXLocationEngineListener {
 				.setMaxBeaconNumberForProcessing(maxBeaconNumberForProcessing);
 	}
 
+	public void setRssiThreshold(int threshold) {
+		locationEngine.setRssiThreshold(threshold);
+	}
+
 	@Override
 	public void locationChanged(NPXLocationEngine engine, NPLocalPoint lp) {
 		lastTimeLocationUpdated = System.currentTimeMillis();

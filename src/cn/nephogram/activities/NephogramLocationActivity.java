@@ -26,9 +26,11 @@ public class NephogramLocationActivity extends BaseMapViewActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		beaconManager = new BeaconManager(this);
+		Log.i(TAG, DataManager.getBeaconDBPath());
 
 		locationManager = new NPLocationManager(this,
 				DataManager.getBeaconDBPath());
+
 		locationManager.setBeaconRegion(DataManager.getRegion());
 		locationManager.addLocationEngineListener(this);
 

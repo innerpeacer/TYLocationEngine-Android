@@ -62,6 +62,10 @@ public class NPXLocationEngine implements RangingListener, NPStepListener,
 	private static final int DEFAULT_MAX_BEACON_NUMBER_FOR_PROCESSING = 9;
 	private int maxBeaconNumberForProcessing = DEFAULT_MAX_BEACON_NUMBER_FOR_PROCESSING;
 
+	private int RSSI_LEVEL_THRESHOLD = -75;
+	private int BEACON_NUMBER_FOR_LEVEL_CHECK = 3;
+	private int rssiThrehold = RSSI_LEVEL_THRESHOLD;
+
 	public NPXLocationEngine(Context context, String beaconDBPath) {
 		this.context = context;
 		this.dbPath = beaconDBPath;
@@ -162,6 +166,13 @@ public class NPXLocationEngine implements RangingListener, NPStepListener,
 
 		if (scannedBeacons.size() == 0) {
 			return;
+		}
+
+		{
+			Beacon firstBeacon = scannedBeacons.get(0);
+			if (firstBeacon.getRssi() < rssiThrehold) {
+				return;
+			}
 		}
 
 		VectorOfScannedBeaconPointer sbpVector = new VectorOfScannedBeaconPointer();
@@ -331,6 +342,10 @@ public class NPXLocationEngine implements RangingListener, NPStepListener,
 
 	public void setMaxBeaconNumberForProcessing(int maxBeaconNumberForProcessing) {
 		this.maxBeaconNumberForProcessing = maxBeaconNumberForProcessing;
+	}
+
+	public void setRssiThreshold(int threshold) {
+		rssiThrehold = threshold;
 	}
 
 	void addToLog(String log) {

@@ -22,7 +22,9 @@ public class MainListActivity extends HelperListActivity {
 
 		setTitle(getResources().getString(R.string.app_name));
 
-		NPMapView.useAsset = true;
+		// NPMapView.useAsset = true;
+		NPMapView.useAsset = false;
+
 	};
 
 	protected void constructList() {

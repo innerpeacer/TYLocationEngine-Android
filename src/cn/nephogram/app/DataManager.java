@@ -12,9 +12,9 @@ public class DataManager {
 	static final String DEFAULT_BUILDING_ID_002100002 = "002100002";
 	static final String DEFAULT_BUILDING_ID_002100004 = "002100004";
 
-	static final String BEACON_DB_FILE_002100001 = ROOT_DIR + "/beacon.db";
-	static final String BEACON_DB_FILE_002100002 = ROOT_DIR + "/beacon-jz.db";
-	static final String BEACON_DB_FILE_002100004 = ROOT_DIR + "/beacon-yd.db";
+	static final String BEACON_DB_FILE_002100001 = ROOT_DIR + "beacon-of.db";
+	static final String BEACON_DB_FILE_002100002 = ROOT_DIR + "beacon-jz.db";
+	static final String BEACON_DB_FILE_002100004 = ROOT_DIR + "beacon-yd.db";
 
 	// Office
 	static final String UUID_002100001 = "E2879308-4FA3-4F30-AC22-19ECDCB0D8C8";
@@ -47,7 +47,6 @@ public class DataManager {
 	// static final String UsedBuildingID = DEFAULT_BUILDING_ID_002100004;
 
 	public static String getUUID() {
-
 		return UsedUUID;
 	}
 
