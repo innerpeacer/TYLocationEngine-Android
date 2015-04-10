@@ -17,6 +17,7 @@ namespace Nephogram {
             virtual void Initilize(const std::vector<NPXPublicBeacon> &beacons) = 0;
             virtual void processBeacons(std::vector<const NPXScannedBeacon *> &beacons) = 0;
             virtual void addStepEvent() = 0;
+			virtual void reset() = 0;
             virtual NPXPoint getLocation() const = 0;
             virtual ~ILocationEngine() {};
         };

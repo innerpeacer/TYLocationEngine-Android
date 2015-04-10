@@ -1271,6 +1271,17 @@ SWIGEXPORT void JNICALL Java_cn_nephogram_locationengine_swig_BLELocationEngineJ
 }
 
 
+SWIGEXPORT void JNICALL Java_cn_nephogram_locationengine_swig_BLELocationEngineJNI_ILocationEngine_1reset(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  Nephogram::BLELocationEngine::ILocationEngine *arg1 = (Nephogram::BLELocationEngine::ILocationEngine *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Nephogram::BLELocationEngine::ILocationEngine **)&jarg1; 
+  (arg1)->reset();
+}
+
+
 SWIGEXPORT jlong JNICALL Java_cn_nephogram_locationengine_swig_BLELocationEngineJNI_ILocationEngine_1getLocation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   Nephogram::BLELocationEngine::ILocationEngine *arg1 = (Nephogram::BLELocationEngine::ILocationEngine *) 0 ;

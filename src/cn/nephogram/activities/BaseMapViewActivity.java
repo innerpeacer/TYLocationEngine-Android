@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import cn.nephogram.app.DataManager;
 import cn.nephogram.ble.R;
 import cn.nephogram.datamanager.NPAssetsManager;
 import cn.nephogram.mapsdk.NPMapEnvironment;
@@ -17,7 +18,6 @@ import cn.nephogram.mapsdk.NPRenderingScheme;
 import cn.nephogram.mapsdk.data.NPBuilding;
 import cn.nephogram.mapsdk.data.NPMapInfo;
 import cn.nephogram.mapsdk.poi.NPPoi;
-import cn.nephogram.settings.AppSettings;
 
 import com.esri.core.geometry.Point;
 
@@ -55,16 +55,19 @@ public abstract class BaseMapViewActivity extends Activity implements
 	public abstract void initContentViewID();
 
 	private void getCurrentBuilding() {
-		AppSettings pref = new AppSettings(this);
-		String cityID = pref.getDefaultCityID();
-		String buildingID = pref.getDefaultBuildingID();
+		// AppSettings pref = new AppSettings(this);
+		// String cityID = pref.getDefaultCityID();
+		// String buildingID = pref.getDefaultBuildingID();
 
-		currentBuilding = NPBuilding
-				.parseBuildingFromAssetsById(this,
-						NPAssetsManager.getBuildingJsonPath(cityID), cityID,
-						buildingID);
-		mapInfos = NPMapInfo.parseMapInfoFromAssets(this,
-				NPAssetsManager.getMapInfoJsonPath(buildingID), buildingID);
+		String cityID = "0021";
+
+		currentBuilding = NPBuilding.parseBuildingFromAssetsById(this,
+				NPAssetsManager.getBuildingJsonPath(cityID), cityID,
+				DataManager.getBuildingID());
+		mapInfos = NPMapInfo
+				.parseMapInfoFromAssets(this, NPAssetsManager
+						.getMapInfoJsonPath(DataManager.getBuildingID()),
+						DataManager.getBuildingID());
 
 	}
 

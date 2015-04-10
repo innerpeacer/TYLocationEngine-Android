@@ -18,12 +18,13 @@ using namespace Nephogram::BLELocationEngine;
 
 namespace Nephogram {
     namespace BLELocationEngine {
-        class ILocationEngine {
+        struct ILocationEngine {
         public:
             ILocationEngine() {};
             virtual void Initilize(const vector<NPXPublicBeacon> &beacons) = 0;
             virtual void processBeacons(vector<const NPXScannedBeacon *> &beacons) = 0;
             virtual void addStepEvent() = 0;
+            virtual void reset() = 0;
             virtual NPXPoint getLocation() const = 0;
             virtual ~ILocationEngine() {};
         };

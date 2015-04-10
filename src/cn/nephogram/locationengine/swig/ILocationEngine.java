@@ -47,6 +47,10 @@ public class ILocationEngine {
     BLELocationEngineJNI.ILocationEngine_addStepEvent(swigCPtr, this);
   }
 
+  public void reset() {
+    BLELocationEngineJNI.ILocationEngine_reset(swigCPtr, this);
+  }
+
   public NPXPoint getLocation() {
     return new NPXPoint(BLELocationEngineJNI.ILocationEngine_getLocation(swigCPtr, this), true);
   }

@@ -59,6 +59,13 @@ public class MainActivity extends Activity implements NPLocationManagerListener 
 		addToLog("didUpdateLocation: " + lp.toString());
 	}
 
+	@Override
+	public void didUpdateDeviceHeading(NPLocationManager locationManager,
+			double newHeading) {
+		addToLog("didUpdateDeviceHeading: " + newHeading);
+
+	}
+
 	void addToLog(String log) {
 
 		if (logList.size() >= 25) {

@@ -10,7 +10,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 public abstract class NPStepDector implements SensorEventListener {
-	protected List<PMStepListener> mStepListeners = new ArrayList<PMStepListener>();
+	protected List<NPStepListener> mStepListeners = new ArrayList<NPStepListener>();
 	private Context context;
 	protected SensorManager mSensorManager;
 
@@ -24,7 +24,7 @@ public abstract class NPStepDector implements SensorEventListener {
 				.getSystemService(Context.SENSOR_SERVICE);
 	}
 
-	public void registerStepListener(PMStepListener listener) {
+	public void registerStepListener(NPStepListener listener) {
 		if (listener != null) {
 			if (!mStepListeners.contains(listener)) {
 				mStepListeners.add(listener);
@@ -32,7 +32,7 @@ public abstract class NPStepDector implements SensorEventListener {
 		}
 	}
 
-	public void unregisterStepListener(PMStepListener listener) {
+	public void unregisterStepListener(NPStepListener listener) {
 		if (mStepListeners.contains(listener)) {
 			mStepListeners.remove(listener);
 		}
@@ -62,7 +62,7 @@ public abstract class NPStepDector implements SensorEventListener {
 	}
 
 	protected void notifyOnStepEvent(NPStepEvent event) {
-		for (PMStepListener listener : mStepListeners) {
+		for (NPStepListener listener : mStepListeners) {
 			listener.onStepEvent(event);
 		}
 	}
@@ -77,7 +77,7 @@ public abstract class NPStepDector implements SensorEventListener {
 	// return new StepDector();
 	// }
 
-	public interface PMStepListener {
+	public interface NPStepListener {
 		public void onStepEvent(NPStepEvent event);
 	}
 

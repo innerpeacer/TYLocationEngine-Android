@@ -8,12 +8,10 @@ import cn.nephogram.data.NPLocalPoint;
 import cn.nephogram.ibeacon.sdk.BeaconManager;
 import cn.nephogram.locationengine.NPLocationManager;
 import cn.nephogram.locationengine.NPLocationManager.NPLocationManagerListener;
+import cn.nephogram.mapsdk.NPMapView.NPMapViewMode;
 import cn.nephogram.mapsdk.NPPictureSymbol;
 
-import com.esri.android.map.GraphicsLayer;
 import com.esri.core.geometry.Point;
-import com.esri.core.map.Graphic;
-import com.esri.core.renderer.SimpleRenderer;
 
 public class NephogramLocationActivity extends BaseMapViewActivity implements
 		NPLocationManagerListener {
@@ -22,7 +20,6 @@ public class NephogramLocationActivity extends BaseMapViewActivity implements
 	BeaconManager beaconManager;
 	NPLocationManager locationManager;
 
-	GraphicsLayer resultLayer;
 	NPPictureSymbol locationSymbol;
 
 	@Override
@@ -35,33 +32,32 @@ public class NephogramLocationActivity extends BaseMapViewActivity implements
 		locationManager.setBeaconRegion(DataManager.getRegion());
 		locationManager.addLocationEngineListener(this);
 
-		resultLayer = new GraphicsLayer();
-		mapView.addLayer(resultLayer);
-
 		locationSymbol = new NPPictureSymbol(getResources().getDrawable(
-				R.drawable.location));
-		locationSymbol.setWidth(20);
-		locationSymbol.setHeight(20);
-		resultLayer.setRenderer(new SimpleRenderer(locationSymbol));
+				R.drawable.location_arrow));
+		locationSymbol.setWidth(30);
+		locationSymbol.setHeight(30);
+
+		mapView.setLocationSymbol(locationSymbol);
+		mapView.setMapMode(NPMapViewMode.NPMapViewModeFollowing);
 	}
 
 	@Override
-	public void didFailUpdateLocation(NPLocationManager locationManager) {
-		Log.i(TAG, "didFailUpdateLocation: " + System.currentTimeMillis()
-				/ 1000.0f);
-		resultLayer.removeAll();
+	public void didFailUpdateLocation(NPLocationManager locationManager) { // resultLayer.removeAll();
+		mapView.removeLocation();
 	}
 
 	@Override
 	public void didUpdateLocation(NPLocationManager locationManager,
 			NPLocalPoint lp) {
-		Log.i(TAG, "didUpdateLocation: " + lp.toString());
+		mapView.showLocation(lp);
+		mapView.centerAt(new Point(lp.getX(), lp.getY()), true);
+	}
 
-		resultLayer.removeAll();
-
-		// Graphic g = new Graphic();
-		resultLayer.addGraphic(new Graphic(new Point(lp.getX(), lp.getY()),
-				null));
+	@Override
+	public void didUpdateDeviceHeading(NPLocationManager locationManager,
+			double newHeading) {
+		Log.i(TAG, "didUpdateDeviceHeading: " + newHeading);
+		mapView.processDeviceRotation(newHeading);
 	}
 
 	@Override

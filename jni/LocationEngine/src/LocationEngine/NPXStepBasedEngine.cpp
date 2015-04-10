@@ -35,7 +35,7 @@ void NPXStepBasedEngine::Initilize(const vector<Nephogram::BLELocationEngine::NP
 void NPXStepBasedEngine::processBeacons(vector<const Nephogram::BLELocationEngine::NPXScannedBeacon *> &beacons) {
     algorithm->setNearestBeacons(beacons);
     
-    printf("NPXStepBasedTEngine: Here OK!");
+//    printf("NPXStepBasedTEngine: Here OK!");
     
     NPXPoint newLocation = getIndependentLocation();
     
@@ -76,6 +76,15 @@ void NPXStepBasedEngine::processBeacons(vector<const Nephogram::BLELocationEngin
 
 void NPXStepBasedEngine::addStepEvent() {
     stepCount++;
+}
+
+void NPXStepBasedEngine::reset()
+{
+    stepCount = DefaultStep;
+    xMovingAverage.clear();
+    yMovingAverage.clear();
+    currentAnchorLocation = INVALID_POINT;
+    currentDisplayLocation = INVALID_POINT;
 }
 
 NPXPoint NPXStepBasedEngine::getLocation() const {

@@ -77,6 +77,17 @@ public class NPLocationManager implements NPXLocationEngineListener {
 	//
 	// }
 
+	public void setLimitBeaconNumber(boolean limitBeaconNumber) {
+		// this.limitBeaconNumber = limitBeaconNumber;
+		locationEngine.setLimitBeaconNumber(limitBeaconNumber);
+	}
+
+	public void setMaxBeaconNumberForProcessing(int maxBeaconNumberForProcessing) {
+		// this.maxBeaconNumberForProcessing = maxBeaconNumberForProcessing;
+		locationEngine
+				.setMaxBeaconNumberForProcessing(maxBeaconNumberForProcessing);
+	}
+
 	@Override
 	public void locationChanged(NPXLocationEngine engine, NPLocalPoint lp) {
 		lastTimeLocationUpdated = System.currentTimeMillis();
@@ -91,6 +102,11 @@ public class NPLocationManager implements NPXLocationEngineListener {
 
 		notifyLocationUpdated(lp);
 		lastLocation = lp;
+	}
+
+	@Override
+	public void headingChanged(NPXLocationEngine engine, double newHeading) {
+		notifyHeadingUpdated(newHeading);
 	}
 
 	public void setBeaconRegion(Region region) {
@@ -111,6 +127,9 @@ public class NPLocationManager implements NPXLocationEngineListener {
 				NPLocalPoint lp);
 
 		void didFailUpdateLocation(NPLocationManager locationManager);
+
+		void didUpdateDeviceHeading(NPLocationManager locationManager,
+				double newHeading);
 	}
 
 	private List<NPLocationManagerListener> locationListeners = new ArrayList<NPLocationManagerListener>();
@@ -139,4 +158,9 @@ public class NPLocationManager implements NPXLocationEngineListener {
 		}
 	}
 
+	private void notifyHeadingUpdated(double newHeading) {
+		for (NPLocationManagerListener listener : locationListeners) {
+			listener.didUpdateDeviceHeading(this, newHeading);
+		}
+	}
 }

@@ -18,7 +18,7 @@ public class MainListActivity extends HelperListActivity {
 		AppSettings settings = new AppSettings(this);
 
 		settings.setDefaultCityID("0021");
-		settings.setDefaultBuildingID("002100002");
+		settings.setDefaultBuildingID("002100001");
 
 		setTitle(getResources().getString(R.string.app_name));
 

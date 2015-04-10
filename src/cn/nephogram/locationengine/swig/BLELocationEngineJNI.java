@@ -71,6 +71,7 @@ public class BLELocationEngineJNI {
   public final static native void ILocationEngine_Initilize(long jarg1, ILocationEngine jarg1_, long jarg2, VectorOfPublicBeacon jarg2_);
   public final static native void ILocationEngine_processBeacons(long jarg1, ILocationEngine jarg1_, long jarg2, VectorOfScannedBeaconPointer jarg2_);
   public final static native void ILocationEngine_addStepEvent(long jarg1, ILocationEngine jarg1_);
+  public final static native void ILocationEngine_reset(long jarg1, ILocationEngine jarg1_);
   public final static native long ILocationEngine_getLocation(long jarg1, ILocationEngine jarg1_);
   public final static native void delete_ILocationEngine(long jarg1);
   public final static native long CreateNPXStepBaseTriangulationEngine(int jarg1);

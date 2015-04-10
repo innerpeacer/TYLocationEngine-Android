@@ -27,12 +27,13 @@ namespace Nephogram {
         class NPXStepBasedEngine : public ILocationEngine {
         public:
             NPXStepBasedEngine(NPXAlgorithmType type):algorithmType(type) {
-            	algorithm = NULL;
+                algorithm = NULL;
             }
             
             void Initilize(const vector<NPXPublicBeacon> &beacons);
             void processBeacons(vector<const NPXScannedBeacon *> &beacons);
             void addStepEvent();
+            void reset();
             NPXPoint getLocation() const;
             
             ~NPXStepBasedEngine() {
