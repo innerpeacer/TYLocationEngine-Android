@@ -27,7 +27,6 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
-
 import cn.nephogram.ibeacon.sdk.ALMovingAverageTD;
 import cn.nephogram.ibeacon.sdk.Beacon;
 import cn.nephogram.ibeacon.sdk.Region;
@@ -283,10 +282,10 @@ public class BeaconService extends Service {
 	}
 
 	private void checkNotOnUiThread() {
-		Preconditions
-				.checkArgument(Looper.getMainLooper().getThread() != Thread
-						.currentThread(),
-						"This cannot be run on UI thread, starting BLE scan can be expensive");
+		// Preconditions
+		// .checkArgument(Looper.getMainLooper().getThread() != Thread
+		// .currentThread(),
+		// "This cannot be run on UI thread, starting BLE scan can be expensive");
 
 		Preconditions.checkNotNull(Boolean.valueOf(this.handlerThread
 				.getLooper() == Looper.myLooper()),

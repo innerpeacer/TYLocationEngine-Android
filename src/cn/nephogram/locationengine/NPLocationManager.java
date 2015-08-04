@@ -5,11 +5,13 @@ import java.util.List;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 import cn.nephogram.data.NPLocalPoint;
 import cn.nephogram.ibeacon.sdk.Region;
 import cn.nephogram.locationengine.NPXLocationEngine.NPXLocationEngineListener;
 
 public class NPLocationManager implements NPXLocationEngineListener {
+	static final String TAG = NPLocationManager.class.getSimpleName();
 
 	private static final double DEFAULT_REQUEST_TIME_OUT = 4.0f;
 	private static final long DEFAULT_CHECK_INERVAL = 1000;
@@ -51,6 +53,8 @@ public class NPLocationManager implements NPXLocationEngineListener {
 		if (isLocating) {
 			return;
 		}
+
+		Log.i(TAG, "startUpdateLocation");
 
 		isLocating = true;
 		locationEngine.start();

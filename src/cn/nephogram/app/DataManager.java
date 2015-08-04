@@ -5,7 +5,7 @@ import cn.nephogram.ibeacon.sdk.Region;
 
 public class DataManager {
 	static final String ROOT_DIR = Environment.getExternalStorageDirectory()
-			+ "/Nephogram/";
+			+ "/NephogramTest/";
 	static String MAP_DIR = ROOT_DIR + "MapFiles";
 
 	static final String DEFAULT_BUILDING_ID_002100001 = "002100001";

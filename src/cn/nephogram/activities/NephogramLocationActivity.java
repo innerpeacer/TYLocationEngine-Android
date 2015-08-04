@@ -70,6 +70,13 @@ public class NephogramLocationActivity extends BaseMapViewActivity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
+
+		// new Thread(new Runnable() {
+		// @Override
+		// public void run() {
+		// locationManager.startUpdateLocation();
+		// }
+		// }).start();
 		locationManager.startUpdateLocation();
 	}
 

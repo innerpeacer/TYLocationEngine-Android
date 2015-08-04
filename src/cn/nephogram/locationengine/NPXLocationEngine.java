@@ -74,11 +74,11 @@ public class NPXLocationEngine implements RangingListener, NPStepListener,
 				.CreateNPXStepBaseTriangulationEngine(NPXAlgorithmType.NPXQuadraticWeighting);
 		initAlgorithm();
 
-		for (int i = 0; i < publicBeaconArray.size(); ++i) {
-			NPXPublicBeacon pb = publicBeaconArray.valueAt(i);
-			// Log.i(TAG, "Major: " + pb.getMajor() + ", Minor " +
-			// pb.getMinor());
-		}
+		// for (int i = 0; i < publicBeaconArray.size(); ++i) {
+		// NPXPublicBeacon pb = publicBeaconArray.valueAt(i);
+		// Log.i(TAG, "Major: " + pb.getMajor() + ", Minor " +
+		// pb.getMinor());
+		// }
 
 		beaconManager = new BeaconManager(context);
 		beaconManager.setRangingListener(this);
@@ -139,7 +139,7 @@ public class NPXLocationEngine implements RangingListener, NPStepListener,
 		db.open();
 		List<NPPublicBeacon> pbList = db.getAllNephogramBeacons();
 		for (NPPublicBeacon pb : pbList) {
-			addToLog(pb.toString());
+			// addToLog(pb.toString());
 
 			NPXPoint location = new NPXPoint(pb.getLocation().getX(), pb
 					.getLocation().getY(), pb.getLocation().getFloor());

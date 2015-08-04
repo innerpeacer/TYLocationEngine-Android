@@ -28,9 +28,7 @@ public class NPBeaconDBAdapter {
 	public NPBeaconDBAdapter(Context ctx, String path) {
 		this.context = ctx;
 		dbFile = new File(path);
-
 		Log.i(TAG, path);
-
 		db = SQLiteDatabase.openOrCreateDatabase(dbFile, null);
 	}
 
@@ -69,6 +67,7 @@ public class NPBeaconDBAdapter {
 				allBeacons.add(pb);
 			} while (c.moveToNext());
 		}
+		c.close();
 
 		return allBeacons;
 	}
