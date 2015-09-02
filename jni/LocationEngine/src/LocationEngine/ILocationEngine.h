@@ -9,28 +9,28 @@
 #define ILOCATIONENGINE_H_
 
 #include <vector>
-#include "../Entity/NPXScannedBeacon.h"
-#include "../Entity/NPXPoint.h"
-#include "../Entity/NPXPublicBeacon.h"
-#include "../Algorithm/NPXAlgorithmType.h"
+#include "../Entity/IPXScannedBeacon.h"
+#include "../Entity/IPXPoint.h"
+#include "../Entity/IPXPublicBeacon.h"
+#include "../Algorithm/IPXAlgorithmType.h"
 
-using namespace Nephogram::BLELocationEngine;
+using namespace Innerpeacer::BLELocationEngine;
 
-namespace Nephogram {
+namespace Innerpeacer {
     namespace BLELocationEngine {
         struct ILocationEngine {
         public:
             ILocationEngine() {};
-            virtual void Initilize(const vector<NPXPublicBeacon> &beacons) = 0;
-            virtual void processBeacons(vector<const NPXScannedBeacon *> &beacons) = 0;
+            virtual void Initilize(const vector<IPXPublicBeacon> &beacons) = 0;
+            virtual void processBeacons(vector<const IPXScannedBeacon *> &beacons) = 0;
             virtual void addStepEvent() = 0;
             virtual void reset() = 0;
-            virtual NPXPoint getLocation() const = 0;
+            virtual IPXPoint getLocation() const = 0;
             virtual ~ILocationEngine() {};
         };
     }
 }
 
-ILocationEngine *CreateNPXStepBaseTriangulationEngine(NPXAlgorithmType type);
+ILocationEngine *CreateIPXStepBaseTriangulationEngine(IPXAlgorithmType type);
 
 #endif /* ILOCATIONENGINE_H_ */
