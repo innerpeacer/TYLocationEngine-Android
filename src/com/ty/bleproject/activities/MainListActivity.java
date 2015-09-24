@@ -27,6 +27,8 @@ public class MainListActivity extends HelperListActivity {
 			copyFileIfNeeded();
 		}
 		copyFileIfNeeded();
+		LicenseManager.loadContent(FileHelper.readStringFromAsset(this,
+				"Licenses.json"));
 
 		TYUserDefaults settings = new TYUserDefaults(this);
 

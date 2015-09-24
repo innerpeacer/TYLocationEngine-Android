@@ -1,15 +1,43 @@
 package com.ty.bleproject.activities;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import android.content.Context;
 
 public class FileHelper {
 
 	static final String TAG = FileHelper.class.getSimpleName();
+
+	public static String readStringFromAsset(Context context, String sourcePath) {
+		StringBuffer buffer = new StringBuffer();
+		try {
+			InputStream input = context.getAssets().open(sourcePath);
+			InputStreamReader in = new InputStreamReader(input);
+			BufferedReader reader = new BufferedReader(in);
+
+			// byte[] b = new byte[1024 * 5];
+			// int length;
+			// while ((length = input.read(b)) != -1) {
+			//
+			// }
+
+			String line = "";
+			while ((line = reader.readLine()) != null) {
+				buffer.append(line);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return buffer.toString();
+	}
 
 	public static void copyFolderFromAsset(Context context, String sourcePath,
 			String targetPath) {

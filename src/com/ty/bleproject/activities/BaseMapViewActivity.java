@@ -1,6 +1,7 @@
 package com.ty.bleproject.activities;
 
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -114,7 +115,10 @@ public abstract class BaseMapViewActivity extends Activity implements
 		setTitle(String.format("%s-%s", currentBuilding.getName(),
 				currentMapInfo.getFloorName()));
 
-		mapView.init(currentBuilding);
+		// mapView.init(currentBuilding);
+		Map<String, String> dict = LicenseManager
+				.getLicenseForBuilding(currentBuilding.getBuildingID());
+		mapView.init(currentBuilding, dict.get("UserID"), dict.get("License"));
 		mapView.setFloor(currentMapInfo);
 
 		mapView.addMapListener(this);
@@ -161,5 +165,9 @@ public abstract class BaseMapViewActivity extends Activity implements
 		super.onPause();
 
 		mapView.pause();
+	}
+
+	static {
+		System.loadLibrary("TYMapSDK");
 	}
 }
