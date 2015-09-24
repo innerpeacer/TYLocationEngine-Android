@@ -1,6 +1,6 @@
 package com.ty.locationengine.ibeacon;
 
-final class IPUnsignedInts {
+public final class IPUnsignedInts {
 	static final long INT_MASK = 4294967295L;
 
 	static int flip(int value) {

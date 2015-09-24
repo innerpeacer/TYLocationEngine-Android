@@ -1,10 +1,8 @@
 package com.ty.locationengine.ibeacon;
 
-
 import android.os.Messenger;
 
-
-class IPMonitoringRegion extends IPRangingRegion {
+public class IPMonitoringRegion extends IPRangingRegion {
 	public static final int NOT_SEEN = -1;
 	private long lastSeenTimeMillis = -1L;
 	private boolean wasInside;

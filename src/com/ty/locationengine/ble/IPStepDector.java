@@ -77,7 +77,7 @@ abstract class IPStepDector implements SensorEventListener {
 	// return new StepDector();
 	// }
 
-	public interface TYStepListener {
+	interface TYStepListener {
 		public void onStepEvent(IPStepEvent event);
 	}
 

@@ -18,10 +18,26 @@ public class DataManager {
 	// UUID_00210004, 1, null);
 	// static final String UsedUUID = UUID_00210004;
 	// static final BeaconRegion UsedRegion = REGION_00210004;
-	//
-	// public static String getUUID() {
-	// return UsedUUID;
-	// }
+
+	// // 四行仓库
+	// static final String UUID_00210004 =
+	// "058285BF-8FC5-46FC-81AB-915E9508B0D7";
+	// static final BeaconRegion REGION_00210004 = new BeaconRegion("TuYa",
+	// UUID_00210004, 1, null);
+	// static final String UsedUUID = UUID_00210004;
+	// static final BeaconRegion UsedRegion = REGION_00210004;
+
+	// 成山路
+	// static final String UUID_002199999 =
+	// "FDA50693-A4E2-4FB1-AFCF-C6EB07647825";
+	// static final BeaconRegion REGION_002199999 = new BeaconRegion("TuYa",
+	// UUID_002199999, null, null);
+	// static final String UsedUUID = UUID_002199999;
+	// static final BeaconRegion UsedRegion = REGION_002199999;
+
+	public static String getUUID() {
+		return UsedUUID;
+	}
 
 	public static BeaconRegion getRegion() {
 		return UsedRegion;

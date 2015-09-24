@@ -9,48 +9,42 @@
 package com.ty.locationengine.swig;
 
 public enum IPXAlgorithmType {
-  IPXSingle,
-  IPXTripple,
-  IPXHybridSingle,
-  IPXHybridTripple,
-  IPXLinearWeighting,
-  IPXQuadraticWeighting;
+	IPXSingle, IPXTripple, IPXHybridSingle, IPXHybridTripple, IPXLinearWeighting, IPXQuadraticWeighting;
 
-  public final int swigValue() {
-    return swigValue;
-  }
+	public final int swigValue() {
+		return swigValue;
+	}
 
-  public static IPXAlgorithmType swigToEnum(int swigValue) {
-    IPXAlgorithmType[] swigValues = IPXAlgorithmType.class.getEnumConstants();
-    if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
-      return swigValues[swigValue];
-    for (IPXAlgorithmType swigEnum : swigValues)
-      if (swigEnum.swigValue == swigValue)
-        return swigEnum;
-    throw new IllegalArgumentException("No enum " + IPXAlgorithmType.class + " with value " + swigValue);
-  }
+	public static IPXAlgorithmType swigToEnum(int swigValue) {
+		IPXAlgorithmType[] swigValues = IPXAlgorithmType.class
+				.getEnumConstants();
+		if (swigValue < swigValues.length && swigValue >= 0
+				&& swigValues[swigValue].swigValue == swigValue)
+			return swigValues[swigValue];
+		for (IPXAlgorithmType swigEnum : swigValues)
+			if (swigEnum.swigValue == swigValue)
+				return swigEnum;
+		throw new IllegalArgumentException("No enum " + IPXAlgorithmType.class
+				+ " with value " + swigValue);
+	}
 
-  @SuppressWarnings("unused")
-  private IPXAlgorithmType() {
-    this.swigValue = SwigNext.next++;
-  }
+	private IPXAlgorithmType() {
+		this.swigValue = SwigNext.next++;
+	}
 
-  @SuppressWarnings("unused")
-  private IPXAlgorithmType(int swigValue) {
-    this.swigValue = swigValue;
-    SwigNext.next = swigValue+1;
-  }
+	private IPXAlgorithmType(int swigValue) {
+		this.swigValue = swigValue;
+		SwigNext.next = swigValue + 1;
+	}
 
-  @SuppressWarnings("unused")
-  private IPXAlgorithmType(IPXAlgorithmType swigEnum) {
-    this.swigValue = swigEnum.swigValue;
-    SwigNext.next = this.swigValue+1;
-  }
+	private IPXAlgorithmType(IPXAlgorithmType swigEnum) {
+		this.swigValue = swigEnum.swigValue;
+		SwigNext.next = this.swigValue + 1;
+	}
 
-  private final int swigValue;
+	private final int swigValue;
 
-  private static class SwigNext {
-    private static int next = 0;
-  }
+	private static class SwigNext {
+		private static int next = 0;
+	}
 }
-

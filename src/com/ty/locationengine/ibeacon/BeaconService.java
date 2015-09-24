@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -197,7 +196,8 @@ public class BeaconService extends Service {
 	public void stopMonitoring(String regionId) {
 		Log.v(TAG, "Stopping monitoring: " + regionId);
 		checkNotOnUiThread();
-		Iterator<IPMonitoringRegion> iterator = this.monitoredRegions.iterator();
+		Iterator<IPMonitoringRegion> iterator = this.monitoredRegions
+				.iterator();
 		while (iterator.hasNext()) {
 			IPMonitoringRegion monitoringRegion = (IPMonitoringRegion) iterator
 					.next();
@@ -370,10 +370,10 @@ public class BeaconService extends Service {
 
 		public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
 			BeaconService.this.checkNotOnUiThread();
-			Beacon beacon = BeaconUtils.beaconFromLeScan(device, rssi, scanRecord);
+			Beacon beacon = BeaconUtils.beaconFromLeScan(device, rssi,
+					scanRecord);
 
-			if ((beacon == null) || (!IPTuYaBeacons.isEstimoteBeacon(beacon))) {
-				Log.d(TAG, "Device " + device + " is not an Estimote beacon");
+			if ((beacon == null)) {
 				return;
 			}
 
@@ -467,7 +467,8 @@ public class BeaconService extends Service {
 						BeaconService.this.beaconAverageRssi);
 		}
 
-		private List<IPMonitoringRegion> findEnteredRegions(long currentTimeMillis) {
+		private List<IPMonitoringRegion> findEnteredRegions(
+				long currentTimeMillis) {
 			List<IPMonitoringRegion> didEnterRegions = new ArrayList<IPMonitoringRegion>();
 			for (Entry<Beacon, Long> entry : BeaconService.this.beaconsFoundInScanCycle
 					.entrySet()) {
@@ -487,7 +488,8 @@ public class BeaconService extends Service {
 		private List<IPMonitoringRegion> matchingMonitoredRegions(Beacon beacon) {
 			List<IPMonitoringRegion> results = new ArrayList<IPMonitoringRegion>();
 			for (IPMonitoringRegion monitoredRegion : BeaconService.this.monitoredRegions) {
-				if (BeaconUtils.isBeaconInRegion(beacon, monitoredRegion.region)) {
+				if (BeaconUtils
+						.isBeaconInRegion(beacon, monitoredRegion.region)) {
 					results.add(monitoredRegion);
 				}
 			}
@@ -502,7 +504,8 @@ public class BeaconService extends Service {
 				monitoredRegion.removeNotSeenBeacons(currentTimeMillis);
 		}
 
-		private List<IPMonitoringRegion> findExitedRegions(long currentTimeMillis) {
+		private List<IPMonitoringRegion> findExitedRegions(
+				long currentTimeMillis) {
 			List<IPMonitoringRegion> didExitMonitors = new ArrayList<IPMonitoringRegion>();
 			for (IPMonitoringRegion monitoredRegion : BeaconService.this.monitoredRegions) {
 				if (monitoredRegion.didJustExit(currentTimeMillis)) {

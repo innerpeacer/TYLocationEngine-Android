@@ -1,13 +1,13 @@
-package com.ty.bleproject.settings;
+package com.ty.bleproject.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-public class AppSettings {
+public class TYUserDefaults {
 	Context context;
 
-	public AppSettings(Context c) {
+	public TYUserDefaults(Context c) {
 		this.context = c;
 	}
 

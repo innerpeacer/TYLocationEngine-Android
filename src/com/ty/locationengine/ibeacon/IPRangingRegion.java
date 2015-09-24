@@ -10,12 +10,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
-
 import android.os.Messenger;
 import android.util.Log;
 
-
-class IPRangingRegion {
+public class IPRangingRegion {
 	private static final String TAG = (IPRangingRegion.class.getSimpleName());
 
 	private static final Comparator<Beacon> BEACON_ACCURACY_COMPARATOR = new Comparator<Beacon>() {
@@ -70,7 +68,8 @@ class IPRangingRegion {
 		// Log.i(TAG, "processFoundBeacons");
 		beaconsRssi = averageRssi;
 		for (Entry<Beacon, Long> entry : beaconsFoundInScanCycle.entrySet()) {
-			if (BeaconUtils.isBeaconInRegion((Beacon) entry.getKey(), this.region)) {
+			if (BeaconUtils.isBeaconInRegion((Beacon) entry.getKey(),
+					this.region)) {
 				this.beacons.remove(entry.getKey());
 				this.beacons.put(entry.getKey(), entry.getValue());
 			}

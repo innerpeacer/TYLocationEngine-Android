@@ -11,8 +11,8 @@ import com.ty.locationengine.ble.TYLocationManager.TYLocationManagerListener;
 import com.ty.locationengine.ibeacon.BeaconManager;
 import com.ty.mapdata.TYLocalPoint;
 import com.ty.mapsdk.TYMapEnvironment;
+import com.ty.mapsdk.TYMapInfo;
 import com.ty.mapsdk.TYMapView.TYMapViewMode;
-import com.ty.mapsdk.TYPictureMarkerSymbol;
 
 public class MapLocationActivity extends BaseMapViewActivity implements
 		TYLocationManagerListener {
@@ -20,8 +20,6 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 
 	BeaconManager beaconManager;
 	TYLocationManager locationManager;
-
-	TYPictureMarkerSymbol locationSymbol;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +32,6 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 		locationManager.setBeaconRegion(DataManager.getRegion());
 		locationManager.addLocationEngineListener(this);
 
-		locationSymbol = new TYPictureMarkerSymbol(getResources().getDrawable(
-				R.drawable.l7));
-		locationSymbol.setWidth(80);
-		locationSymbol.setHeight(80);
-
-		mapView.setLocationSymbol(locationSymbol);
-		// mapView.setMapMode(NPMapViewMode.NPMapViewModeFollowing);
 		mapView.setMapMode(TYMapViewMode.TYMapViewModeDefault);
 	}
 
@@ -53,7 +44,15 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 	public void didUpdateLocation(TYLocationManager locationManager,
 			TYLocalPoint lp) {
 		if (mapView.getCurrentMapInfo().getFloorNumber() != lp.getFloor()) {
-
+			for (TYMapInfo info : mapInfos) {
+				if (info.getFloorNumber() == lp.getFloor()) {
+					currentMapInfo = info;
+					mapView.setFloor(info);
+					setTitle(String.format("%s-%s", currentBuilding.getName(),
+							currentMapInfo.getFloorName()));
+					break;
+				}
+			}
 		}
 
 		mapView.showLocation(lp);
@@ -63,7 +62,7 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 	@Override
 	public void didUpdateDeviceHeading(TYLocationManager locationManager,
 			double newHeading) {
-		Log.i(TAG, "didUpdateDeviceHeading: " + newHeading);
+		// Log.i(TAG, "didUpdateDeviceHeading: " + newHeading);
 		mapView.processDeviceRotation(newHeading);
 	}
 

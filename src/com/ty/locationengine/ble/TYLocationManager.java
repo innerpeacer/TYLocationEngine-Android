@@ -1,7 +1,11 @@
 package com.ty.locationengine.ble;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
@@ -10,8 +14,8 @@ import android.util.Log;
 
 import com.ty.locationengine.ble.IPXLocationEngine.IPXLocationEngineListener;
 import com.ty.locationengine.ibeacon.BeaconRegion;
+import com.ty.mapdata.TYBuilding;
 import com.ty.mapdata.TYLocalPoint;
-import com.ty.mapsdk.TYBuilding;
 import com.ty.mapsdk.TYMapEnvironment;
 
 public class TYLocationManager implements IPXLocationEngineListener {
@@ -54,6 +58,23 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	// }
 
 	public TYLocationManager(Context context, TYBuilding building) {
+		if (!building.getBuildingID().equalsIgnoreCase("00210100")) {
+			return;
+		}
+
+		try {
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date invalidDate = dateFormat.parse("2017-10-11");
+
+			Date now = new Date();
+			boolean isInvalid = now.after(invalidDate);
+			if (isInvalid) {
+				return;
+			}
+		} catch (ParseException e) {
+			return;
+		}
+
 		String dbName = String.format("%s_Beacon.db", building.getBuildingID());
 		this.beaconPath = new File(
 				TYMapEnvironment.getDirectoryForBuilding(building), dbName)
@@ -109,8 +130,29 @@ public class TYLocationManager implements IPXLocationEngineListener {
 		locationEngine.setRssiThreshold(threshold);
 	}
 
+	// @Override
+	// public void locationChanged(IPXLocationEngine engine, TYLocalPoint lp) {
+	// lastTimeLocationUpdated = System.currentTimeMillis();
+	//
+	// if (lp.getFloor() == 0) {
+	// if (lastLocation == null) {
+	// lp.setFloor(1);
+	// } else {
+	// lp.setFloor(lastLocation.getFloor());
+	// }
+	// }
+	//
+	// notifyLocationUpdated(lp);
+	// lastLocation = lp;
+	// }
+
+	// @Override
+	// public void headingChanged(IPXLocationEngine engine, double newHeading) {
+	// notifyHeadingUpdated(newHeading);
+	// }
+
 	@Override
-	public void locationChanged(IPXLocationEngine engine, TYLocalPoint lp) {
+	public void locationChanged(TYLocalPoint lp) {
 		lastTimeLocationUpdated = System.currentTimeMillis();
 
 		if (lp.getFloor() == 0) {
@@ -126,7 +168,7 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	}
 
 	@Override
-	public void headingChanged(IPXLocationEngine engine, double newHeading) {
+	public void headingChanged(double newHeading) {
 		notifyHeadingUpdated(newHeading);
 	}
 

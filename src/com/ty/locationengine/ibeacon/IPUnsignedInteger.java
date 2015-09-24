@@ -2,7 +2,7 @@ package com.ty.locationengine.ibeacon;
 
 import java.math.BigInteger;
 
-final class IPUnsignedInteger extends Number {
+public final class IPUnsignedInteger extends Number {
 
 	private static final long serialVersionUID = -3472660809221800562L;
 

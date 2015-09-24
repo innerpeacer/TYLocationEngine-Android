@@ -11,7 +11,7 @@ import android.util.Log;
 
 import com.ty.mapdata.TYLocalPoint;
 
-public class TYBeaconDBAdapter {
+class TYBeaconDBAdapter {
 	static final String TAG = TYBeaconDBAdapter.class.getSimpleName();
 
 	private static final String TABLE_BEACON = "beacon";

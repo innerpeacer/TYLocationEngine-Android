@@ -11,13 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ty.bleproject.R;
+import com.ty.bleproject.app.TYUserDefaults;
 import com.ty.bleproject.app.DataManager;
-import com.ty.bleproject.settings.AppSettings;
 import com.ty.locationengine.ble.TYLocationManager;
 import com.ty.locationengine.ble.TYLocationManager.TYLocationManagerListener;
 import com.ty.locationengine.ibeacon.BeaconManager;
+import com.ty.mapdata.TYBuilding;
 import com.ty.mapdata.TYLocalPoint;
-import com.ty.mapsdk.TYBuilding;
+import com.ty.mapsdk.TYBuildingManager;
 
 public class MainActivity extends Activity implements TYLocationManagerListener {
 	static final String TAG = MainActivity.class.getSimpleName();
@@ -44,11 +45,11 @@ public class MainActivity extends Activity implements TYLocationManagerListener 
 
 		addToLog("onCreate...");
 
-		AppSettings pref = new AppSettings(this);
+		TYUserDefaults pref = new TYUserDefaults(this);
 		String cityID = pref.getDefaultCityID();
 		String buildingID = pref.getDefaultBuildingID();
-		currentBuilding = TYBuilding.parseBuildingFromFilesById(this, cityID,
-				buildingID);
+		currentBuilding = TYBuildingManager.parseBuildingFromFilesById(this,
+				cityID, buildingID);
 
 		beaconManager = new BeaconManager(this);
 

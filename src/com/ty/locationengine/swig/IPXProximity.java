@@ -9,46 +9,41 @@
 package com.ty.locationengine.swig;
 
 public enum IPXProximity {
-  IPXProximityUnknwon(TYLocationEngineJNI.IPXProximityUnknwon_get()),
-  IPXProximityImmediate,
-  IPXProximityNear,
-  IPXProximityFar;
+	IPXProximityUnknwon(TYLocationEngineJNI.IPXProximityUnknwon_get()), IPXProximityImmediate, IPXProximityNear, IPXProximityFar;
 
-  public final int swigValue() {
-    return swigValue;
-  }
+	public final int swigValue() {
+		return swigValue;
+	}
 
-  public static IPXProximity swigToEnum(int swigValue) {
-    IPXProximity[] swigValues = IPXProximity.class.getEnumConstants();
-    if (swigValue < swigValues.length && swigValue >= 0 && swigValues[swigValue].swigValue == swigValue)
-      return swigValues[swigValue];
-    for (IPXProximity swigEnum : swigValues)
-      if (swigEnum.swigValue == swigValue)
-        return swigEnum;
-    throw new IllegalArgumentException("No enum " + IPXProximity.class + " with value " + swigValue);
-  }
+	public static IPXProximity swigToEnum(int swigValue) {
+		IPXProximity[] swigValues = IPXProximity.class.getEnumConstants();
+		if (swigValue < swigValues.length && swigValue >= 0
+				&& swigValues[swigValue].swigValue == swigValue)
+			return swigValues[swigValue];
+		for (IPXProximity swigEnum : swigValues)
+			if (swigEnum.swigValue == swigValue)
+				return swigEnum;
+		throw new IllegalArgumentException("No enum " + IPXProximity.class
+				+ " with value " + swigValue);
+	}
 
-  @SuppressWarnings("unused")
-  private IPXProximity() {
-    this.swigValue = SwigNext.next++;
-  }
+	private IPXProximity() {
+		this.swigValue = SwigNext.next++;
+	}
 
-  @SuppressWarnings("unused")
-  private IPXProximity(int swigValue) {
-    this.swigValue = swigValue;
-    SwigNext.next = swigValue+1;
-  }
+	private IPXProximity(int swigValue) {
+		this.swigValue = swigValue;
+		SwigNext.next = swigValue + 1;
+	}
 
-  @SuppressWarnings("unused")
-  private IPXProximity(IPXProximity swigEnum) {
-    this.swigValue = swigEnum.swigValue;
-    SwigNext.next = this.swigValue+1;
-  }
+	private IPXProximity(IPXProximity swigEnum) {
+		this.swigValue = swigEnum.swigValue;
+		SwigNext.next = this.swigValue + 1;
+	}
 
-  private final int swigValue;
+	private final int swigValue;
 
-  private static class SwigNext {
-    private static int next = 0;
-  }
+	private static class SwigNext {
+		private static int next = 0;
+	}
 }
-

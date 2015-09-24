@@ -1,6 +1,6 @@
 package com.ty.locationengine.ibeacon;
 
-class IPPreconditions {
+public class IPPreconditions {
 	public static <T> T checkNotNull(T reference, Object errorMessage) {
 		if (reference == null) {
 			throw new NullPointerException(String.valueOf(errorMessage));

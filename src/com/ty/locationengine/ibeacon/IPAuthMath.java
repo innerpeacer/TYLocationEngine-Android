@@ -6,7 +6,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-class IPAuthMath {
+public class IPAuthMath {
 	private static final SecureRandom RANDOM = new SecureRandom();
 	public static final long G_BASE = 5L;
 	public static final long P_MODULO = 4294967291L;

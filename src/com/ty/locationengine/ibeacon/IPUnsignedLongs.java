@@ -1,6 +1,6 @@
 package com.ty.locationengine.ibeacon;
 
-final class IPUnsignedLongs {
+public final class IPUnsignedLongs {
 	public static final long MAX_VALUE = -1L;
 
 	private static long flip(long a) {

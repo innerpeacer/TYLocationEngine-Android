@@ -11,8 +11,9 @@ import android.widget.ListView;
 
 import com.esri.core.geometry.Point;
 import com.ty.bleproject.R;
-import com.ty.bleproject.settings.AppSettings;
-import com.ty.mapsdk.TYBuilding;
+import com.ty.bleproject.app.TYUserDefaults;
+import com.ty.mapdata.TYBuilding;
+import com.ty.mapsdk.TYBuildingManager;
 import com.ty.mapsdk.TYMapEnvironment;
 import com.ty.mapsdk.TYMapInfo;
 import com.ty.mapsdk.TYMapView;
@@ -54,12 +55,12 @@ public abstract class BaseMapViewActivity extends Activity implements
 	public abstract void initContentViewID();
 
 	private void getCurrentBuilding() {
-		AppSettings pref = new AppSettings(this);
+		TYUserDefaults pref = new TYUserDefaults(this);
 		String cityID = pref.getDefaultCityID();
 		String buildingID = pref.getDefaultBuildingID();
 
-		currentBuilding = TYBuilding.parseBuildingFromFilesById(this, cityID,
-				buildingID);
+		currentBuilding = TYBuildingManager.parseBuildingFromFilesById(this,
+				cityID, buildingID);
 		mapInfos = TYMapInfo.parseMapInfoFromFiles(this, cityID, buildingID);
 	}
 

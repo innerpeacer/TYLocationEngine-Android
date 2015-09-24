@@ -2,7 +2,7 @@ package com.ty.locationengine.ble;
 
 import com.ty.locationengine.ibeacon.Beacon;
 
-public class IPBeaconKey {
+class IPBeaconKey {
 	private static final int CONSTANT_HUNDRED_THROUSAND = 100000;
 
 	public static Integer beaconKeyForBeacon(Beacon beacon) {

@@ -7,15 +7,17 @@ import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-class IPMonitoringResult implements Parcelable {
+public class IPMonitoringResult implements Parcelable {
 	public final BeaconRegion region;
 	public final BeaconRegion.State state;
 	public final List<Beacon> beacons;
 	public static final Parcelable.Creator<IPMonitoringResult> CREATOR = new Parcelable.Creator<IPMonitoringResult>() {
 		public IPMonitoringResult createFromParcel(Parcel source) {
 			ClassLoader classLoader = getClass().getClassLoader();
-			BeaconRegion region = (BeaconRegion) source.readParcelable(classLoader);
-			BeaconRegion.State event = BeaconRegion.State.values()[source.readInt()];
+			BeaconRegion region = (BeaconRegion) source
+					.readParcelable(classLoader);
+			BeaconRegion.State event = BeaconRegion.State.values()[source
+					.readInt()];
 			@SuppressWarnings("unchecked")
 			List<Beacon> beacons = source.readArrayList(classLoader);
 			return new IPMonitoringResult(region, event, beacons);

@@ -3,7 +3,7 @@ package com.ty.locationengine.ibeacon;
 import java.io.Serializable;
 import java.security.MessageDigest;
 
-abstract class IPHashCode {
+public abstract class IPHashCode {
 	private static final char[] hexDigits = "0123456789abcdef".toCharArray();
 
 	public abstract int asInt();

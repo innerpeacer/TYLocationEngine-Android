@@ -8,14 +8,14 @@ import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
-final class IPRangingResult implements Parcelable {
+public final class IPRangingResult implements Parcelable {
 	public final BeaconRegion region;
 	public final List<Beacon> beacons;
 	public static final Parcelable.Creator<IPRangingResult> CREATOR = new Parcelable.Creator<IPRangingResult>() {
 		public IPRangingResult createFromParcel(Parcel source) {
 			ClassLoader classLoader = getClass().getClassLoader();
-			BeaconRegion region = (BeaconRegion) source.readParcelable(classLoader);
+			BeaconRegion region = (BeaconRegion) source
+					.readParcelable(classLoader);
 			@SuppressWarnings("unchecked")
 			List<Beacon> beacons = source.readArrayList(classLoader);
 
@@ -30,8 +30,9 @@ final class IPRangingResult implements Parcelable {
 	public IPRangingResult(BeaconRegion region, Collection<Beacon> beacons) {
 		this.region = IPPreconditions.checkNotNull(region,
 				"region cannot be null");
-		this.beacons = Collections.unmodifiableList(new ArrayList<Beacon>(
-				IPPreconditions.checkNotNull(beacons, "beacons cannot be null")));
+		this.beacons = Collections
+				.unmodifiableList(new ArrayList<Beacon>(IPPreconditions
+						.checkNotNull(beacons, "beacons cannot be null")));
 	}
 
 	public boolean equals(Object o) {

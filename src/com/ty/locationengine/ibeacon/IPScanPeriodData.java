@@ -3,7 +3,7 @@ package com.ty.locationengine.ibeacon;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-final class IPScanPeriodData implements Parcelable {
+public final class IPScanPeriodData implements Parcelable {
 	public final long scanPeriodMillis;
 	public final long waitTimeMillis;
 	public static final Parcelable.Creator<IPScanPeriodData> CREATOR = new Parcelable.Creator<IPScanPeriodData>() {

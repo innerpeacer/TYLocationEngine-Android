@@ -68,7 +68,7 @@ abstract class IPHeadingDetector implements SensorEventListener {
 		}
 	}
 
-	public interface TYHeadingListener {
+	interface TYHeadingListener {
 		void onHeadingChanged(float newHeading);
 	}
 }

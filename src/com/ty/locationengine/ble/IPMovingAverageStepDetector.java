@@ -83,7 +83,7 @@ class IPMovingAverageStepDetector extends IPStepDector {
 		mSensorManager.unregisterListener(this);
 	};
 
-	public class MovingAverageStepDetectorState {
+	class MovingAverageStepDetectorState {
 		float[] values;
 		boolean[] states;
 		double duration;

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.ty.bleproject.R;
-import com.ty.bleproject.settings.AppSettings;
+import com.ty.bleproject.app.TYUserDefaults;
 import com.ty.mapsdk.TYMapEnvironment;
 
 public class MainListActivity extends HelperListActivity {
@@ -26,16 +26,16 @@ public class MainListActivity extends HelperListActivity {
 		if (!new File(mapRootDir).exists()) {
 			copyFileIfNeeded();
 		}
-		// copyFileIfNeeded();
+		copyFileIfNeeded();
 
-		AppSettings settings = new AppSettings(this);
+		TYUserDefaults settings = new TYUserDefaults(this);
 
 		settings.setDefaultCityID("0021");
 		settings.setDefaultBuildingID("00210100");
-		settings.setDefaultBuildingID("00210004");
+		// settings.setDefaultBuildingID("00210004");
+		// settings.setDefaultBuildingID("002199999");
 
 		setTitle(getResources().getString(R.string.app_name));
-
 	};
 
 	void copyFileIfNeeded() {

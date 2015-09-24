@@ -59,7 +59,7 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 	private static final int DEFAULT_MAX_BEACON_NUMBER_FOR_PROCESSING = 9;
 	private int maxBeaconNumberForProcessing = DEFAULT_MAX_BEACON_NUMBER_FOR_PROCESSING;
 
-	private int RSSI_LEVEL_THRESHOLD = -75;
+	private int RSSI_LEVEL_THRESHOLD = -90;
 	// private int BEACON_NUMBER_FOR_LEVEL_CHECK = 3;
 	private int rssiThrehold = RSSI_LEVEL_THRESHOLD;
 
@@ -302,10 +302,13 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 		});
 	}
 
-	public interface IPXLocationEngineListener {
-		void locationChanged(IPXLocationEngine engine, TYLocalPoint lp);
+	interface IPXLocationEngineListener {
+		// void locationChanged(IPXLocationEngine engine, TYLocalPoint lp);
+		void locationChanged(TYLocalPoint lp);
 
-		void headingChanged(IPXLocationEngine engine, double newHeading);
+		// void headingChanged(IPXLocationEngine engine, double newHeading);
+		void headingChanged(double newHeading);
+
 	}
 
 	private List<IPXLocationEngineListener> locationListeners = new ArrayList<IPXLocationEngineListener>();
@@ -324,13 +327,13 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 
 	private void notifyLocationChanged(TYLocalPoint lp) {
 		for (IPXLocationEngineListener listener : locationListeners) {
-			listener.locationChanged(this, lp);
+			listener.locationChanged(lp);
 		}
 	}
 
 	private void notifyHeadingChanged(double newHeading) {
 		for (IPXLocationEngineListener listener : locationListeners) {
-			listener.headingChanged(this, newHeading);
+			listener.headingChanged(newHeading);
 		}
 	}
 
