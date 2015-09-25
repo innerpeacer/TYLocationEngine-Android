@@ -58,9 +58,9 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	// }
 
 	public TYLocationManager(Context context, TYBuilding building) {
-		if (!building.getBuildingID().equalsIgnoreCase("00210100")) {
-			return;
-		}
+		// if (!building.getBuildingID().equalsIgnoreCase("00210100")) {
+		// return;
+		// }
 
 		try {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

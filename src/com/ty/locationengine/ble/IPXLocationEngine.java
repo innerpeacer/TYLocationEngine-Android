@@ -34,11 +34,6 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 	static final String TAG = IPXLocationEngine.class.getSimpleName();
 	static final int REQUEST_ENABLE_BT = 1234;
 
-	// private static final String DEFAULT_UUID =
-	// "E2879308-4FA3-4F30-AC22-19ECDCB0D8C8";
-	// private static final Region DEFAULT_REGION = new Region("Nephogram",
-	// DEFAULT_UUID, 1, null);
-
 	final Context context;
 	private BeaconManager beaconManager;
 

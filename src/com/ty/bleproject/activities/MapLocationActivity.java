@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.esri.core.geometry.Point;
 import com.ty.bleproject.R;
-import com.ty.bleproject.app.DataManager;
+import com.ty.bleproject.app.TYRegionManager;
 import com.ty.locationengine.ble.TYLocationManager;
 import com.ty.locationengine.ble.TYLocationManager.TYLocationManagerListener;
 import com.ty.locationengine.ibeacon.BeaconManager;
@@ -20,6 +20,7 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 
 	BeaconManager beaconManager;
 	TYLocationManager locationManager;
+	TYRegionManager regionManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +28,21 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 		beaconManager = new BeaconManager(this);
 		Log.i(TAG, TYMapEnvironment.getDirectoryForBuilding(currentBuilding));
 
+		regionManager = new TYRegionManager(this);
+
 		locationManager = new TYLocationManager(this, currentBuilding);
 
-		locationManager.setBeaconRegion(DataManager.getRegion());
+		locationManager.setBeaconRegion(regionManager
+				.getBeaconRegion(currentBuilding.getBuildingID()));
+
 		locationManager.addLocationEngineListener(this);
 
 		mapView.setMapMode(TYMapViewMode.TYMapViewModeDefault);
 	}
 
 	@Override
-	public void didFailUpdateLocation(TYLocationManager locationManager) { // resultLayer.removeAll();
+	public void didFailUpdateLocation(TYLocationManager locationManager) {
+		// resultLayer.removeAll();
 		mapView.removeLocation();
 	}
 

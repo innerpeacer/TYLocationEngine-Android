@@ -1,4 +1,4 @@
-package com.ty.bleproject.activities;
+package com.ty.bleproject.app;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class LicenseManager {
 		}
 	}
 
-	static Map<String, String> getLicenseForBuilding(String buildingID) {
+	public static Map<String, String> getLicenseForBuilding(String buildingID) {
 		return allLicenseDictionary.get(buildingID);
 	}
 

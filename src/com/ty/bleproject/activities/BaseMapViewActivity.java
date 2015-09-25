@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.esri.core.geometry.Point;
 import com.ty.bleproject.R;
+import com.ty.bleproject.app.LicenseManager;
 import com.ty.bleproject.app.TYUserDefaults;
 import com.ty.mapdata.TYBuilding;
 import com.ty.mapsdk.TYBuildingManager;
