@@ -30,6 +30,8 @@ LOCAL_SRC_FILES := TYLocationEngine_wrap.cxx \
 					LocationEngine/src/Algorithm/IPXWeightingAlgorithm.cpp \
 					LocationEngine/src/Filter/IPXMovingAverage.cpp \
 					LocationEngine/src/LocationEngine/IPXStepBasedEngine.cpp \
+					LocationEngine/src/Utils/BLEMD5.cpp \
+					LocationEngine/src/Utils/IPXBeaconDBChecker.cpp \
 					
 										
 

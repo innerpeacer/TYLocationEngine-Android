@@ -129,6 +129,13 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 
 		TYBeaconDBAdapter db = new TYBeaconDBAdapter(context, dbPath);
 		db.open();
+
+		String code = db.getCode();
+		if (code == null) {
+			code = "";
+		}
+		Log.i("BLELocationEngine", "Code: " + code);
+
 		List<TYPublicBeacon> pbList = db.getAllLocationingBeacons();
 		for (TYPublicBeacon pb : pbList) {
 			// addToLog(pb.toString());
@@ -145,7 +152,7 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 
 		// addToLog(pbVector.size() + " beacon in database...");
 
-		locationEngine.Initilize(pbVector);
+		locationEngine.Initilize(pbVector, code);
 	}
 
 	public void onBeaconsDiscovered(BeaconRegion region, List<Beacon> beacons) {

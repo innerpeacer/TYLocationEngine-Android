@@ -30,7 +30,7 @@ namespace Innerpeacer {
                 algorithm = NULL;
             }
             
-            void Initilize(const vector<IPXPublicBeacon> &beacons);
+            void Initilize(const vector<IPXPublicBeacon> &beacons, std::string checkCode);
             void processBeacons(vector<const IPXScannedBeacon *> &beacons);
             void addStepEvent();
             void reset();
@@ -55,6 +55,7 @@ namespace Innerpeacer {
             
             IPXPoint getIndependentLocation();
 
+            bool isBeaconDataComplete;
         };
         
     }

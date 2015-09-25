@@ -21,7 +21,7 @@ namespace Innerpeacer {
         struct ILocationEngine {
         public:
             ILocationEngine() {};
-            virtual void Initilize(const vector<IPXPublicBeacon> &beacons) = 0;
+            virtual void Initilize(const vector<IPXPublicBeacon> &beacons, std::string checkCode) = 0;
             virtual void processBeacons(vector<const IPXScannedBeacon *> &beacons) = 0;
             virtual void addStepEvent() = 0;
             virtual void reset() = 0;

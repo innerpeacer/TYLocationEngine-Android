@@ -1261,9 +1261,10 @@ SWIGEXPORT void JNICALL Java_com_ty_locationengine_swig_TYLocationEngineJNI_dele
 }
 
 
-SWIGEXPORT void JNICALL Java_com_ty_locationengine_swig_TYLocationEngineJNI_ILocationEngine_1Initilize(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_com_ty_locationengine_swig_TYLocationEngineJNI_ILocationEngine_1Initilize(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
   Innerpeacer::BLELocationEngine::ILocationEngine *arg1 = (Innerpeacer::BLELocationEngine::ILocationEngine *) 0 ;
   std::vector< Innerpeacer::BLELocationEngine::IPXPublicBeacon > *arg2 = 0 ;
+  std::string arg3 ;
   
   (void)jenv;
   (void)jcls;
@@ -1275,7 +1276,15 @@ SWIGEXPORT void JNICALL Java_com_ty_locationengine_swig_TYLocationEngineJNI_ILoc
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "std::vector< Innerpeacer::BLELocationEngine::IPXPublicBeacon > const & reference is null");
     return ;
   } 
-  (arg1)->Initilize((std::vector< Innerpeacer::BLELocationEngine::IPXPublicBeacon > const &)*arg2);
+  if(!jarg3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg3_pstr = (const char *)jenv->GetStringUTFChars(jarg3, 0); 
+  if (!arg3_pstr) return ;
+  (&arg3)->assign(arg3_pstr);
+  jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
+  (arg1)->Initilize((std::vector< Innerpeacer::BLELocationEngine::IPXPublicBeacon > const &)*arg2,arg3);
 }
 
 

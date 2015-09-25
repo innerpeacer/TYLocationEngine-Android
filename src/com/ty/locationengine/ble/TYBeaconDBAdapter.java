@@ -15,12 +15,16 @@ class TYBeaconDBAdapter {
 	static final String TAG = TYBeaconDBAdapter.class.getSimpleName();
 
 	private static final String TABLE_BEACON = "beacon";
+	private static final String TABLE_CODE = "Code";
+
 	private static final String FIELD_BEACON_GEOM = "geom";
 	private static final String FIELD_BEACON_UUID = "uuid";
 	private static final String FIELD_BEACON_MAJOR = "major";
 	private static final String FIELD_BEACON_MINOR = "minor";
 	private static final String FIELD_BEACON_FLOOR = "floor";
 	// private static final String FIELD_BEACON_TAG = "tag";
+
+	private static final String FIELD_CODE = "Code";
 
 	final Context context;
 	private SQLiteDatabase db;
@@ -96,4 +100,14 @@ class TYBeaconDBAdapter {
 		return beacon;
 	}
 
+	public String getCode() {
+		String code = null;
+		String[] columns = new String[] { FIELD_CODE };
+		Cursor c = db.query(true, TABLE_CODE, columns, null, null, null, null,
+				null, null, null);
+		if (c != null && c.moveToFirst()) {
+			code = c.getString(0);
+		}
+		return code;
+	}
 }

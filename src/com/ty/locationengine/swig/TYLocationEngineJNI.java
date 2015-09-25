@@ -70,7 +70,7 @@ public class TYLocationEngineJNI {
   public final static native long VectorOfScannedBeaconPointer_get(long jarg1, VectorOfScannedBeaconPointer jarg1_, int jarg2);
   public final static native void VectorOfScannedBeaconPointer_set(long jarg1, VectorOfScannedBeaconPointer jarg1_, int jarg2, long jarg3, IPXScannedBeacon jarg3_);
   public final static native void delete_VectorOfScannedBeaconPointer(long jarg1);
-  public final static native void ILocationEngine_Initilize(long jarg1, ILocationEngine jarg1_, long jarg2, VectorOfPublicBeacon jarg2_);
+  public final static native void ILocationEngine_Initilize(long jarg1, ILocationEngine jarg1_, long jarg2, VectorOfPublicBeacon jarg2_, String jarg3);
   public final static native void ILocationEngine_processBeacons(long jarg1, ILocationEngine jarg1_, long jarg2, VectorOfScannedBeaconPointer jarg2_);
   public final static native void ILocationEngine_addStepEvent(long jarg1, ILocationEngine jarg1_);
   public final static native void ILocationEngine_reset(long jarg1, ILocationEngine jarg1_);

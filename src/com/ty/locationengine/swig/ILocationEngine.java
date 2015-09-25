@@ -35,8 +35,8 @@ public class ILocationEngine {
     }
   }
 
-  public void Initilize(VectorOfPublicBeacon beacons) {
-    TYLocationEngineJNI.ILocationEngine_Initilize(swigCPtr, this, VectorOfPublicBeacon.getCPtr(beacons), beacons);
+  public void Initilize(VectorOfPublicBeacon beacons, String checkCode) {
+    TYLocationEngineJNI.ILocationEngine_Initilize(swigCPtr, this, VectorOfPublicBeacon.getCPtr(beacons), beacons, checkCode);
   }
 
   public void processBeacons(VectorOfScannedBeaconPointer beacons) {

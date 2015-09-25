@@ -38,8 +38,8 @@ public class MainListActivity extends HelperListActivity {
 		// settings.setDefaultBuildingID("00210004");
 		// settings.setDefaultBuildingID("002199999");
 
-		settings.setDefaultCityID("0020");
-		settings.setDefaultBuildingID("00200001");
+		// settings.setDefaultCityID("0020");
+		// settings.setDefaultBuildingID("00200001");
 
 		setTitle(getResources().getString(R.string.app_name));
 	};
