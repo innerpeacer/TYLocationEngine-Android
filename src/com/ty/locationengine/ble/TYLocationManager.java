@@ -18,6 +18,12 @@ import com.ty.mapdata.TYBuilding;
 import com.ty.mapdata.TYLocalPoint;
 import com.ty.mapsdk.TYMapEnvironment;
 
+/**
+ * 定位引擎类
+ * 
+ * @author innerpeacer
+ * 
+ */
 public class TYLocationManager implements IPXLocationEngineListener {
 	static final String TAG = TYLocationManager.class.getSimpleName();
 
@@ -57,6 +63,14 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	// locationEngine.addLocationEngineListener(this);
 	// }
 
+	/**
+	 * 定位引擎构造方法
+	 * 
+	 * @param context
+	 *            上下文环境
+	 * @param building
+	 *            目标建筑
+	 */
 	public TYLocationManager(Context context, TYBuilding building) {
 		// if (!building.getBuildingID().equalsIgnoreCase("00210100")) {
 		// return;
@@ -83,6 +97,9 @@ public class TYLocationManager implements IPXLocationEngineListener {
 		locationEngine.addLocationEngineListener(this);
 	}
 
+	/**
+	 * 开启定位引擎
+	 */
 	public void startUpdateLocation() {
 		if (isLocating) {
 			return;
@@ -98,6 +115,9 @@ public class TYLocationManager implements IPXLocationEngineListener {
 		lastTimeLocationUpdated = System.currentTimeMillis();
 	}
 
+	/**
+	 * 停止定位引擎
+	 */
 	public void stopUpdateLocation() {
 		if (!isLocating) {
 			return;
@@ -107,6 +127,11 @@ public class TYLocationManager implements IPXLocationEngineListener {
 		locationEngine.stop();
 	}
 
+	/**
+	 * 获取最近一次的位置信息
+	 * 
+	 * @return 位置点
+	 */
 	public TYLocalPoint getLastLocation() {
 		return lastLocation;
 	}
@@ -115,41 +140,38 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	//
 	// }
 
+	/**
+	 * 设置是否限制定位使用的beacon个数
+	 * 
+	 * @param limitBeaconNumber
+	 *            是否限制
+	 */
 	public void setLimitBeaconNumber(boolean limitBeaconNumber) {
 		// this.limitBeaconNumber = limitBeaconNumber;
 		locationEngine.setLimitBeaconNumber(limitBeaconNumber);
 	}
 
+	/**
+	 * 设置用于定位的beacon最大个数
+	 * 
+	 * @param maxBeaconNumberForProcessing
+	 *            用于定位的beacon最大个数，即选取不多于mbn个beacon进行定位
+	 */
 	public void setMaxBeaconNumberForProcessing(int maxBeaconNumberForProcessing) {
 		// this.maxBeaconNumberForProcessing = maxBeaconNumberForProcessing;
 		locationEngine
 				.setMaxBeaconNumberForProcessing(maxBeaconNumberForProcessing);
 	}
 
+	/**
+	 * 设置beacon信号阈值
+	 * 
+	 * @param threshold
+	 *            低于此信号阈值将忽略beacon信号
+	 */
 	public void setRssiThreshold(int threshold) {
 		locationEngine.setRssiThreshold(threshold);
 	}
-
-	// @Override
-	// public void locationChanged(IPXLocationEngine engine, TYLocalPoint lp) {
-	// lastTimeLocationUpdated = System.currentTimeMillis();
-	//
-	// if (lp.getFloor() == 0) {
-	// if (lastLocation == null) {
-	// lp.setFloor(1);
-	// } else {
-	// lp.setFloor(lastLocation.getFloor());
-	// }
-	// }
-	//
-	// notifyLocationUpdated(lp);
-	// lastLocation = lp;
-	// }
-
-	// @Override
-	// public void headingChanged(IPXLocationEngine engine, double newHeading) {
-	// notifyHeadingUpdated(newHeading);
-	// }
 
 	@Override
 	public void locationChanged(TYLocalPoint lp) {
@@ -172,37 +194,95 @@ public class TYLocationManager implements IPXLocationEngineListener {
 		notifyHeadingUpdated(newHeading);
 	}
 
+	/**
+	 * 设置用于定位的Beacon参数
+	 * 
+	 * @param region
+	 *            Beacon Region参数
+	 */
 	public void setBeaconRegion(BeaconRegion region) {
 		beaconRegion = region;
 		locationEngine.setBeaconRegion(beaconRegion);
 	}
 
+	/**
+	 * 设置定位请求超时时间，即超过此时间没有结果返回认为定位失败
+	 * 
+	 * @param rt
+	 *            超时时间
+	 */
 	public void setRequestTimeOut(double rt) {
 		this.requestTimeOut = rt;
 	}
 
+	/**
+	 * 获取定位请求超时时间
+	 * 
+	 * @return 超时时间
+	 */
 	public double getRequestTimeOut() {
 		return requestTimeOut;
 	}
 
+	/**
+	 * 定位引擎监听回调接口
+	 * 
+	 * @author innerpeacer
+	 * 
+	 */
 	public interface TYLocationManagerListener {
+
+		/**
+		 * 位置更新事件回调，位置更新并返回新的位置结果
+		 * 
+		 * @param locationManager
+		 *            定位引擎实例
+		 * @param lp
+		 *            新的位置结果
+		 */
 		void didUpdateLocation(TYLocationManager locationManager,
 				TYLocalPoint lp);
 
+		/**
+		 * 位置更新失败事件回调
+		 * 
+		 * @param locationManager
+		 *            定位引擎实例
+		 */
 		void didFailUpdateLocation(TYLocationManager locationManager);
 
+		/**
+		 * 设备方向改变事件回调
+		 * 
+		 * @param locationManager
+		 *            定位引擎实例
+		 * @param newHeading
+		 *            新的设备方向结果
+		 */
 		void didUpdateDeviceHeading(TYLocationManager locationManager,
 				double newHeading);
 	}
 
 	private List<TYLocationManagerListener> locationListeners = new ArrayList<TYLocationManagerListener>();
 
+	/**
+	 * 添加定位引擎回调监听器
+	 * 
+	 * @param listener
+	 *            回调监听
+	 */
 	public void addLocationEngineListener(TYLocationManagerListener listener) {
 		if (!locationListeners.contains(listener)) {
 			locationListeners.add(listener);
 		}
 	}
 
+	/**
+	 * 移除定位引擎回调监听器
+	 * 
+	 * @param listener
+	 *            回调监听
+	 */
 	public void removeLocationEngineListener(TYLocationManagerListener listener) {
 		if (locationListeners.contains(listener)) {
 			locationListeners.remove(listener);
