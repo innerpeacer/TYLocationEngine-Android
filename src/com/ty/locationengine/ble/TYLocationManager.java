@@ -190,6 +190,16 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	}
 
 	@Override
+	public void didRangedBeacons(List<TYBeacon> beacons) {
+		notifyDidRangeBeacons(beacons);
+	}
+
+	@Override
+	public void didRangedLocationBeacons(List<TYPublicBeacon> beacons) {
+		notifyDidRangeLocationBeacons(beacons);
+	}
+
+	@Override
 	public void headingChanged(double newHeading) {
 		notifyHeadingUpdated(newHeading);
 	}
@@ -231,6 +241,28 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	 * 
 	 */
 	public interface TYLocationManagerListener {
+
+		/**
+		 * Beacon扫描结果事件回调，返回符合扫描参数的所有Beacon
+		 * 
+		 * @param locationManager
+		 *            定位引擎实例
+		 * @param beacons
+		 *            Beacon数组，[TYBeacon]
+		 */
+		void didRangedBeacons(TYLocationManager locationManager,
+				List<TYBeacon> beacons);
+
+		/**
+		 * 定位Beacon扫描结果事件回调，返回符合扫描参数的定位Beacon，定位Beacon包含坐标信息。
+		 * 
+		 * @param locationManager
+		 *            定位引擎实例
+		 * @param beacons
+		 *            定位Beacon数组，[TYPublicBeacon]
+		 */
+		void didRangedLocationBeacons(TYLocationManager locationManager,
+				List<TYPublicBeacon> beacons);
 
 		/**
 		 * 位置更新事件回调，位置更新并返回新的位置结果
@@ -286,6 +318,18 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	public void removeLocationEngineListener(TYLocationManagerListener listener) {
 		if (locationListeners.contains(listener)) {
 			locationListeners.remove(listener);
+		}
+	}
+
+	private void notifyDidRangeBeacons(List<TYBeacon> beacons) {
+		for (TYLocationManagerListener listener : locationListeners) {
+			listener.didRangedBeacons(this, beacons);
+		}
+	}
+
+	private void notifyDidRangeLocationBeacons(List<TYPublicBeacon> beacons) {
+		for (TYLocationManagerListener listener : locationListeners) {
+			listener.didRangedLocationBeacons(this, beacons);
 		}
 	}
 

@@ -27,7 +27,7 @@ public class MainListActivity extends HelperListActivity {
 		if (!new File(mapRootDir).exists()) {
 			copyFileIfNeeded();
 		}
-		copyFileIfNeeded();
+		// copyFileIfNeeded();
 		LicenseManager.loadContent(FileHelper.readStringFromAsset(this,
 				"Licenses.json"));
 
@@ -36,7 +36,7 @@ public class MainListActivity extends HelperListActivity {
 		settings.setDefaultCityID("0021");
 		settings.setDefaultBuildingID("00210100");
 		// settings.setDefaultBuildingID("00210004");
-		// settings.setDefaultBuildingID("002199999");
+		settings.setDefaultBuildingID("002199999");
 
 		// settings.setDefaultCityID("0020");
 		// settings.setDefaultBuildingID("00200001");

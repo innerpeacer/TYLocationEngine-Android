@@ -13,6 +13,14 @@ public class TYBeacon {
 	protected String tag;
 	protected TYBeaconType type;
 
+	protected int rssi;
+	protected TYProximity proximity;
+	protected double accuracy;
+
+	public static enum TYProximity {
+		UNKNOWN, IMMEDIATE, NEAR, FAR;
+	}
+
 	/**
 	 * Beacon类的构造方法
 	 * 
@@ -149,6 +157,33 @@ public class TYBeacon {
 	 */
 	public void setType(TYBeaconType type) {
 		this.type = type;
+	}
+
+	/**
+	 * 扫描到Beacon的信号强度
+	 * 
+	 * @return 信号强度
+	 */
+	public int getRssi() {
+		return rssi;
+	}
+
+	/**
+	 * 距离Beacon的相对距离
+	 * 
+	 * @return 相对距离
+	 */
+	public TYProximity getProximity() {
+		return proximity;
+	}
+
+	/**
+	 * 距离Beacon相对距离的准确性，单位为米
+	 * 
+	 * @return 相对距离准确性
+	 */
+	public double getAccuracy() {
+		return accuracy;
 	}
 
 	@Override

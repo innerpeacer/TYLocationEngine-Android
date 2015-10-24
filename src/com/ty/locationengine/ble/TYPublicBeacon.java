@@ -72,7 +72,7 @@ public class TYPublicBeacon extends TYBeacon {
 
 	@Override
 	public String toString() {
-		return "NPPublicBeacon [major=" + major + ", minor=" + minor
+		return "TYPublicBeacon [major=" + major + ", minor=" + minor
 				+ ", type=" + type + "]";
 	}
 

@@ -14,11 +14,13 @@ import android.util.SparseArray;
 
 import com.ty.locationengine.ble.IPHeadingDetector.TYHeadingListener;
 import com.ty.locationengine.ble.IPStepDector.TYStepListener;
+import com.ty.locationengine.ble.TYBeacon.TYProximity;
 import com.ty.locationengine.ibeacon.Beacon;
 import com.ty.locationengine.ibeacon.BeaconManager;
 import com.ty.locationengine.ibeacon.BeaconManager.RangingListener;
 import com.ty.locationengine.ibeacon.BeaconRegion;
 import com.ty.locationengine.ibeacon.BeaconUtils;
+import com.ty.locationengine.ibeacon.BeaconUtils.Proximity;
 import com.ty.locationengine.swig.ILocationEngine;
 import com.ty.locationengine.swig.IPXAlgorithmType;
 import com.ty.locationengine.swig.IPXPoint;
@@ -121,6 +123,25 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 		headingDetector.stop();
 	}
 
+	private TYProximity proximityFrom(Proximity p) {
+		TYProximity result = TYProximity.UNKNOWN;
+		switch (p) {
+		case IMMEDIATE:
+			result = TYProximity.IMMEDIATE;
+			break;
+
+		case NEAR:
+			result = TYProximity.NEAR;
+			break;
+		case FAR:
+			result = TYProximity.FAR;
+			break;
+		default:
+			break;
+		}
+		return result;
+	}
+
 	private void initAlgorithm() {
 		// addToLog("initAlgorithm...");
 
@@ -161,10 +182,48 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 		}
 		// addToLog("onBeaconsDiscovered: " + beacons.size());
 
+		// 返回扫描到的Beacon
+		{
+			List<TYBeacon> beaconList = new ArrayList<TYBeacon>();
+			for (Beacon b : beacons) {
+				if (b.getRssi() < 0) {
+					TYBeacon beacon = new TYBeacon(b.getProximityUUID(),
+							b.getMajor(), b.getMinor(), null);
+					beacon.accuracy = BeaconUtils.computeAccuracy(b);
+					beacon.rssi = b.getRssi();
+					beacon.proximity = proximityFrom(BeaconUtils
+							.proximityFromAccuracy(beacon.accuracy));
+					beaconList.add(beacon);
+				}
+			}
+			notifyDidRangeBeacons(beaconList);
+		}
+
 		preprocessBeacons(beacons);
 
 		if (scannedBeacons.size() == 0) {
 			return;
+		}
+
+		// 返回扫描到的PublicBeacon
+		{
+			List<TYPublicBeacon> pBeaconList = new ArrayList<TYPublicBeacon>();
+			for (Beacon b : scannedBeacons) {
+				IPXPublicBeacon pb = publicBeaconArray.get(IPBeaconKey
+						.beaconKeyForBeacon(b));
+				TYPublicBeacon publicBeacon = new TYPublicBeacon(pb.getUuid(),
+						pb.getMajor(), pb.getMinor(), null, null);
+				publicBeacon.setLocation(new TYLocalPoint(pb.getLocation()
+						.getX(), pb.getLocation().getY(), pb.getLocation()
+						.getFloor()));
+
+				publicBeacon.accuracy = BeaconUtils.computeAccuracy(b);
+				publicBeacon.rssi = b.getRssi();
+				publicBeacon.proximity = proximityFrom(BeaconUtils
+						.proximityFromAccuracy(publicBeacon.accuracy));
+				pBeaconList.add(publicBeacon);
+			}
+			notifyDidRangeLocationBeacons(pBeaconList);
 		}
 
 		{
@@ -311,6 +370,9 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 		// void headingChanged(IPXLocationEngine engine, double newHeading);
 		void headingChanged(double newHeading);
 
+		void didRangedBeacons(List<TYBeacon> beacons);
+
+		void didRangedLocationBeacons(List<TYPublicBeacon> beacons);
 	}
 
 	private List<IPXLocationEngineListener> locationListeners = new ArrayList<IPXLocationEngineListener>();
@@ -336,6 +398,18 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 	private void notifyHeadingChanged(double newHeading) {
 		for (IPXLocationEngineListener listener : locationListeners) {
 			listener.headingChanged(newHeading);
+		}
+	}
+
+	private void notifyDidRangeBeacons(List<TYBeacon> beacons) {
+		for (IPXLocationEngineListener listener : locationListeners) {
+			listener.didRangedBeacons(beacons);
+		}
+	}
+
+	private void notifyDidRangeLocationBeacons(List<TYPublicBeacon> beacons) {
+		for (IPXLocationEngineListener listener : locationListeners) {
+			listener.didRangedLocationBeacons(beacons);
 		}
 	}
 

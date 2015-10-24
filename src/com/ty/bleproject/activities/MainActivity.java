@@ -13,8 +13,10 @@ import android.widget.Toast;
 import com.ty.bleproject.R;
 import com.ty.bleproject.app.TYRegionManager;
 import com.ty.bleproject.app.TYUserDefaults;
+import com.ty.locationengine.ble.TYBeacon;
 import com.ty.locationengine.ble.TYLocationManager;
 import com.ty.locationengine.ble.TYLocationManager.TYLocationManagerListener;
+import com.ty.locationengine.ble.TYPublicBeacon;
 import com.ty.locationengine.ibeacon.BeaconManager;
 import com.ty.mapdata.TYBuilding;
 import com.ty.mapdata.TYLocalPoint;
@@ -53,11 +55,24 @@ public class MainActivity extends Activity implements TYLocationManagerListener 
 				cityID, buildingID);
 
 		beaconManager = new BeaconManager(this);
+		regionManager = new TYRegionManager(this);
 
 		locationManager = new TYLocationManager(this, currentBuilding);
 		locationManager.setBeaconRegion(regionManager
 				.getBeaconRegion(currentBuilding.getBuildingID()));
 		locationManager.addLocationEngineListener(this);
+	}
+
+	@Override
+	public void didRangedBeacons(TYLocationManager locationManager,
+			List<TYBeacon> beacons) {
+
+	}
+
+	@Override
+	public void didRangedLocationBeacons(TYLocationManager locationManager,
+			List<TYPublicBeacon> beacons) {
+
 	}
 
 	@Override
