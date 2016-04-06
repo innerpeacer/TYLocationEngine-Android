@@ -28,6 +28,8 @@ import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.ty.bleproject.activities.TestActivity;
+
 public class BeaconService extends Service {
 
 	private static final double TIME_WINDOW = 10.0f;
@@ -373,9 +375,51 @@ public class BeaconService extends Service {
 			Beacon beacon = BeaconUtils.beaconFromLeScan(device, rssi,
 					scanRecord);
 
-			if ((beacon == null)) {
+			if (beacon == null) {
 				return;
 			}
+
+			// // Test Package
+			// Log.i(TAG, beacon.getMacAddress());
+			// String targetAddress = "C0:80:2A:18:11:1D";
+			// String targetAddress = "C0:2F:3B:BE:3C:84";
+			// String targetAddress = "EC:60:4D:FA:07:3B";
+			// String targetAddress = "DE:41:51:F8:E8:22";
+			String targetAddress = "D6:24:77:A7:0D:6C";
+
+			if (beacon.getMacAddress().equals(targetAddress)) {
+				if (beacon.getProximityUUID().equals(
+						"ecb33b47-781f-4c16-8513-73fcbb7134f2")) {
+
+					System.out
+							.println("Mac: "
+									+ beacon.getMacAddress()
+									+ ", UUID: "
+									+ beacon.getProximityUUID()
+									+ ", Time: "
+									+ (System.currentTimeMillis() - TestActivity.startTime)
+									/ 1000.0
+									+ "s, Index: "
+									+ (System.currentTimeMillis() - TestActivity.startTime)
+									/ 300 + " Package: A");
+				} else {
+
+					System.out
+							.println("Mac: "
+									+ beacon.getMacAddress()
+									+ ", UUID: "
+									+ beacon.getProximityUUID()
+									+ ", Time: "
+									+ (System.currentTimeMillis() - TestActivity.startTime)
+									/ 1000.0
+									+ "s, Index: "
+									+ (System.currentTimeMillis() - TestActivity.startTime)
+									/ 300 + " Package: B");
+				}
+
+			}
+
+			// // Test Package
 
 			if (!BeaconService.this.beaconAverageRssi.keySet().contains(beacon)) {
 				BeaconService.this.beaconAverageRssi.put(beacon,

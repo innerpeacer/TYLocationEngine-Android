@@ -22,8 +22,8 @@ class IPRssiMovingAverage {
 
 		double limitedValue = value;
 		if (average != 0) {
-			double highLimit = average * (1 + LimitedScale);
-			double lowLimit = average * (1 - LimitedScale);
+			double highLimit = average * (1 - LimitedScale);
+			double lowLimit = average * (1 + LimitedScale);
 			if (value > highLimit) {
 				limitedValue = highLimit;
 			}

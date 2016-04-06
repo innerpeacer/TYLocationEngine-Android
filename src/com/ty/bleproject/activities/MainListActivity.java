@@ -27,7 +27,8 @@ public class MainListActivity extends HelperListActivity {
 		if (!new File(mapRootDir).exists()) {
 			copyFileIfNeeded();
 		}
-		// copyFileIfNeeded();
+		copyFileIfNeeded();
+
 		LicenseManager.loadContent(FileHelper.readStringFromAsset(this,
 				"Licenses.json"));
 
@@ -36,10 +37,10 @@ public class MainListActivity extends HelperListActivity {
 		settings.setDefaultCityID("0021");
 		settings.setDefaultBuildingID("00210100");
 		// settings.setDefaultBuildingID("00210004");
-		settings.setDefaultBuildingID("002199999");
-
-		// settings.setDefaultCityID("0020");
-		// settings.setDefaultBuildingID("00200001");
+		// settings.setDefaultBuildingID("002199999");
+		//
+		// settings.setDefaultCityID("0532");
+		// settings.setDefaultBuildingID("05320001");
 
 		setTitle(getResources().getString(R.string.app_name));
 	};
@@ -65,7 +66,9 @@ public class MainListActivity extends HelperListActivity {
 						MapLocationActivity.class)),
 				new IntentPair(getResources().getString(
 						R.string.activity_location), new Intent(this,
-						MainActivity.class)) };
+						MainActivity.class)),
+				new IntentPair("Test Package", new Intent(this,
+						TestActivity.class)) };
 	}
 
 	@Override

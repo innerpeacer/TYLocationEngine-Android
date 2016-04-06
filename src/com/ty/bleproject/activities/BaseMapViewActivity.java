@@ -5,6 +5,7 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -120,6 +121,7 @@ public abstract class BaseMapViewActivity extends Activity implements
 		Map<String, String> dict = LicenseManager
 				.getLicenseForBuilding(currentBuilding.getBuildingID());
 		mapView.init(currentBuilding, dict.get("UserID"), dict.get("License"));
+		Log.i(TAG, dict.get("UserID") + ", " + dict.get("License"));
 		mapView.setFloor(currentMapInfo);
 
 		mapView.addMapListener(this);

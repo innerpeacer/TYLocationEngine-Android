@@ -43,15 +43,18 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 		Log.i(TAG, TYMapEnvironment.getDirectoryForBuilding(currentBuilding));
 
 		regionManager = new TYRegionManager(this);
-
 		locationManager = new TYLocationManager(this, currentBuilding);
 
 		locationManager.setBeaconRegion(regionManager
 				.getBeaconRegion(currentBuilding.getBuildingID()));
+		// locationManager.setBeaconRegion(new BeaconRegion("TuYa",
+		// "4A280348-E1B1-4901-9DC0-17203C8000B4", 100, null));
 
 		locationManager.addLocationEngineListener(this);
 
 		mapView.setMapMode(TYMapViewMode.TYMapViewModeDefault);
+		// mapView.setMapMode(TYMapViewMode.TYMapViewModeFollowing);
+
 		hintLayer = new GraphicsLayer();
 		mapView.addLayer(hintLayer);
 	}
@@ -106,7 +109,7 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 			List<TYPublicBeacon> beacons) {
 		Log.i(TAG, "didRangedLocationBeacons: " + beacons.size());
 		// Log.i(TAG, beacons.toString());
-		showHintRssiForLocationBeacons(beacons);
+		// showHintRssiForLocationBeacons(beacons);
 	}
 
 	@Override
@@ -129,7 +132,6 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 				}
 			}
 		}
-
 		mapView.showLocation(lp);
 		mapView.centerAt(new Point(lp.getX(), lp.getY()), true);
 	}
@@ -137,7 +139,7 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 	@Override
 	public void didUpdateDeviceHeading(TYLocationManager locationManager,
 			double newHeading) {
-		// Log.i(TAG, "didUpdateDeviceHeading: " + newHeading);
+		Log.i(TAG, "didUpdateDeviceHeading: " + newHeading);
 		mapView.processDeviceRotation(newHeading);
 	}
 
