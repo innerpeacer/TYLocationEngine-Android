@@ -1330,6 +1330,21 @@ SWIGEXPORT jlong JNICALL Java_com_ty_locationengine_swig_TYLocationEngineJNI_ILo
 }
 
 
+SWIGEXPORT jlong JNICALL Java_com_ty_locationengine_swig_TYLocationEngineJNI_ILocationEngine_1getImmediateLocation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  Innerpeacer::BLELocationEngine::ILocationEngine *arg1 = (Innerpeacer::BLELocationEngine::ILocationEngine *) 0 ;
+  Innerpeacer::BLELocationEngine::IPXPoint result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Innerpeacer::BLELocationEngine::ILocationEngine **)&jarg1; 
+  result = ((Innerpeacer::BLELocationEngine::ILocationEngine const *)arg1)->getImmediateLocation();
+  *(Innerpeacer::BLELocationEngine::IPXPoint **)&jresult = new Innerpeacer::BLELocationEngine::IPXPoint((const Innerpeacer::BLELocationEngine::IPXPoint &)result); 
+  return jresult;
+}
+
+
 SWIGEXPORT void JNICALL Java_com_ty_locationengine_swig_TYLocationEngineJNI_delete_1ILocationEngine(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   Innerpeacer::BLELocationEngine::ILocationEngine *arg1 = (Innerpeacer::BLELocationEngine::ILocationEngine *) 0 ;
   

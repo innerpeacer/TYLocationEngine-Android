@@ -20,6 +20,7 @@ import com.ty.locationengine.ble.TYLocationManager;
 import com.ty.locationengine.ble.TYLocationManager.TYLocationManagerListener;
 import com.ty.locationengine.ble.TYPublicBeacon;
 import com.ty.locationengine.ibeacon.BeaconManager;
+import com.ty.locationengine.ibeacon.BeaconRegion;
 import com.ty.mapdata.TYLocalPoint;
 import com.ty.mapsdk.TYMapEnvironment;
 import com.ty.mapsdk.TYMapInfo;
@@ -34,11 +35,11 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 	TYRegionManager regionManager;
 
 	GraphicsLayer hintLayer;
+	GraphicsLayer immediateLayer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		beaconManager = new BeaconManager(this);
 		Log.i(TAG, TYMapEnvironment.getDirectoryForBuilding(currentBuilding));
 
@@ -48,8 +49,9 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 		locationManager.setBeaconRegion(regionManager
 				.getBeaconRegion(currentBuilding.getBuildingID()));
 		// locationManager.setBeaconRegion(new BeaconRegion("TuYa",
-		// "4A280348-E1B1-4901-9DC0-17203C8000B4", 100, null));
-
+		// "FDA50693-A4E2-4FB1-AFCF-C6EB07647825", null, null));
+		locationManager.setBeaconRegion(new BeaconRegion("Wanda",
+				"A3FCE438-627C-42B7-AB72-DC6E55E137AC", 11000, null));
 		locationManager.addLocationEngineListener(this);
 
 		mapView.setMapMode(TYMapViewMode.TYMapViewModeDefault);
@@ -57,6 +59,9 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 
 		hintLayer = new GraphicsLayer();
 		mapView.addLayer(hintLayer);
+
+		immediateLayer = new GraphicsLayer();
+		mapView.addLayer(immediateLayer);
 	}
 
 	void showHintRssiForLocationBeacons(List<TYPublicBeacon> beacons) {
@@ -64,10 +69,8 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 
 		for (TYPublicBeacon pb : beacons) {
 			if (pb.getLocation().getFloor() == currentMapInfo.getFloorNumber()) {
-
 				Point p = new Point(pb.getLocation().getX(), pb.getLocation()
 						.getY());
-
 				// RSSI
 				{
 					String rssi = String.format("%.2f, %d", pb.getAccuracy(),
@@ -78,7 +81,6 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 					Graphic graphic = new Graphic(p, ts);
 					hintLayer.addGraphic(graphic);
 				}
-
 				// Minor
 				{
 					String minor = pb.getMinor() + "";
@@ -88,7 +90,6 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 					Graphic graphic = new Graphic(p, ts);
 					hintLayer.addGraphic(graphic);
 				}
-
 				SimpleMarkerSymbol sms = new SimpleMarkerSymbol(Color.RED, 5,
 						STYLE.CIRCLE);
 				sms.setOutline(new SimpleLineSymbol(Color.BLACK, 1));
@@ -100,20 +101,22 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 	@Override
 	public void didRangedBeacons(TYLocationManager locationManager,
 			List<TYBeacon> beacons) {
-		Log.i(TAG, "didRangedBeacons: " + beacons.size());
+		// Log.i(TAG, "didRangedBeacons: " + beacons.size());
 		// Log.i(TAG, beacons.toString());
 	}
 
 	@Override
 	public void didRangedLocationBeacons(TYLocationManager locationManager,
 			List<TYPublicBeacon> beacons) {
-		Log.i(TAG, "didRangedLocationBeacons: " + beacons.size());
+		// Log.i(TAG, "didRangedLocationBeacons: " + beacons.size());
 		// Log.i(TAG, beacons.toString());
-		// showHintRssiForLocationBeacons(beacons);
+		showHintRssiForLocationBeacons(beacons);
 	}
 
 	@Override
 	public void didFailUpdateLocation(TYLocationManager locationManager) {
+		// Log.i(TAG, "didFailUpdateLocation Location: ");
+
 		// resultLayer.removeAll();
 		mapView.removeLocation();
 	}
@@ -134,12 +137,24 @@ public class MapLocationActivity extends BaseMapViewActivity implements
 		}
 		mapView.showLocation(lp);
 		mapView.centerAt(new Point(lp.getX(), lp.getY()), true);
+		Log.i(TAG, "Location: " + lp);
+	}
+
+	@Override
+	public void didUpdateImmediateLocation(TYLocationManager locationManager,
+			TYLocalPoint lp) {
+		// Log.i(TAG, "Immediate Location: " + lp);
+		immediateLayer.removeAll();
+		SimpleMarkerSymbol sms = new SimpleMarkerSymbol(Color.GREEN, 10,
+				STYLE.CIRCLE);
+		Graphic graphic = new Graphic(new Point(lp.getX(), lp.getY()), sms);
+		immediateLayer.addGraphic(graphic);
 	}
 
 	@Override
 	public void didUpdateDeviceHeading(TYLocationManager locationManager,
 			double newHeading) {
-		Log.i(TAG, "didUpdateDeviceHeading: " + newHeading);
+		// Log.i(TAG, "didUpdateDeviceHeading: " + newHeading);
 		mapView.processDeviceRotation(newHeading);
 	}
 

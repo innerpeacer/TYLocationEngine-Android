@@ -9,6 +9,7 @@
 #include "IPXStepBasedEngine.h"
 #include "../Algorithm/IPXGeometryCalculator.h"
 #include "../Utils/IPXBeaconDBChecker.hpp"
+#include <android/log.h>
 
 using namespace Innerpeacer::BLELocationEngine;
 
@@ -23,11 +24,14 @@ void IPXStepBasedEngine::Initilize(
 	if (algorithm) {
 		delete algorithm;
 	}
-
 	isBeaconDataComplete = checkBeaconDB(beacons, checkCode);
 	if (isBeaconDataComplete) {
+		__android_log_print(ANDROID_LOG_INFO, "JNITag",
+				"string From Java To C : %s", "Complete Beacon Database\n");
 		printf("Complete Beacon Database\n");
 	} else {
+		__android_log_print(ANDROID_LOG_INFO, "JNITag",
+				"string From Java To C : %s", "Incomplete Beacon Database\n");
 		printf("Incomplete Beacon Database\n");
 	}
 
@@ -51,6 +55,7 @@ void IPXStepBasedEngine::processBeacons(
 	}
 
 	IPXPoint newLocation = getIndependentLocation();
+	currentImmediationLocation = newLocation;
 
 	if (newLocation == INVALID_POINT) {
 		return;
@@ -107,4 +112,8 @@ IPXPoint IPXStepBasedEngine::getLocation() const {
 IPXPoint IPXStepBasedEngine::getIndependentLocation() {
 	IPXPoint currentLocation = algorithm->calculationLocation();
 	return currentLocation;
+}
+
+IPXPoint IPXStepBasedEngine::getImmediateLocation() const {
+	return currentImmediationLocation;
 }

@@ -88,6 +88,12 @@ public class MainActivity extends Activity implements TYLocationManagerListener 
 	}
 
 	@Override
+	public void didUpdateImmediateLocation(TYLocationManager locationManager,
+			TYLocalPoint lp) {
+		addToLog("Immediate Location: " + lp);
+	}
+
+	@Override
 	public void didUpdateDeviceHeading(TYLocationManager locationManager,
 			double newHeading) {
 		addToLog("didUpdateDeviceHeading: " + newHeading);

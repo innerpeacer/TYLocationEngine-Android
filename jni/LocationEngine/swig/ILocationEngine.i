@@ -19,6 +19,7 @@ namespace Innerpeacer {
             virtual void addStepEvent() = 0;
 			virtual void reset() = 0;
             virtual IPXPoint getLocation() const = 0;
+			virtual IPXPoint getImmediateLocation() const = 0;
             virtual ~ILocationEngine() {};
         };
     }

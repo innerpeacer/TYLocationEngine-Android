@@ -46,7 +46,8 @@ Innerpeacer::BLELocationEngine::IPXLocationAlgorithm *CreateLocationAlgorithm(co
             break;
             
         default:
-            return nullptr;
+            return NULL;
             break;
     }
+    return NULL;
 }

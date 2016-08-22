@@ -55,4 +55,8 @@ public class ILocationEngine {
     return new IPXPoint(TYLocationEngineJNI.ILocationEngine_getLocation(swigCPtr, this), true);
   }
 
+  public IPXPoint getImmediateLocation() {
+    return new IPXPoint(TYLocationEngineJNI.ILocationEngine_getImmediateLocation(swigCPtr, this), true);
+  }
+
 }

@@ -1,170 +1,566 @@
- [
+[
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00100002",
-  "License" : "ec141f164d324>d?30c3faf0251332f6",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100002",
+    "License" : "c88d944eNGQzMjQ+ZD8#MzBjPWZmZjA#e9b4cfd1",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00100003",
-  "License" : "b2b882c80427`86i7`b62g4g3a12dad6",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100003",
+    "License" : "ad898d19MDQyN2A4Nmk#N2BiODJgNGc#6e48ef04",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00200001",
-  "License" : "31ea5d460lb6oig=7817=6e18c205b62",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100005",
+    "License" : "506c6758ZWE3Z2QwZzo#YjVnaDZoZTI#91680d9b",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00200002",
-  "License" : "eeeb3145270e4?=o5ccdf`?`07df6c55",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100007",
+    "License" : "c651c3cfNG02NjI6Mz0#MzlmOWBiMTc#827b2a9e",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "002100002",
-  "License" : "92d74d6ag`g7n=28`447<b05017d2c5d",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100008",
+    "License" : "d2644b6cZ2dmMjVuZmU#YDM2PWc2ZGA#0fa81c3f",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210003",
-  "License" : "cb9ae2e4g43`dnc?````61a1a6b2bbd1",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100009",
+    "License" : "ca12c9ebPTAyMzQ7ZDU#OmRiPGZjZjE#66a7549e",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210004",
-  "License" : "446f938e`lf:3ja4g85:a5c=24a0ade4",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100010",
+    "License" : "0143f12bMmMzNWE4PGo#NTdjOjNgP2c#0c719d1b",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210005",
-  "License" : "8277436d742ab<g>0`aa0ce68572f3d1",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100011",
+    "License" : "16ded178MmE3MGU7NG0#NTVnPzdjN2E#e1c57a41",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210006",
-  "License" : "15913536=3g`2l47:g4``36<fce675d0",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100012",
+    "License" : "c7384f89YmZlYGcxYD0#ZTI1bzVpYzI#f14394d4",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210008",
-  "License" : "4e57c04b245d0lag5`fdb3cbd9ad79c9",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100020",
+    "License" : "e428e344MGU3NmFuMjE#NzFnOTM2Mjw#109a49b4",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210009",
-  "License" : "73e825a7bd`an0cbe03a<oaf4fd7a7ba",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100021",
+    "License" : "9cdd2c85PTc0MW9pPzw#OmNkPj0xPzA#22bfe0a7",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210010",
-  "License" : "cb4d8a3044a4e<6>3`247c532e193989",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100023",
+    "License" : "f1c4fe45MW0yMmc4Yjg#NjliPTVgYjY#36c842b3",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "002199999",
-  "License" : "926b1040a137>941fe`7eo?5f97eb248",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100022",
+    "License" : "1fb7ef7bZ2EyYG84Mj0#YDVibz1gMjI#6dfc2d52",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210011",
-  "License" : "46a60510<g1:e0fl;3b:7oe`2563e4dd",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100024",
+    "License" : "83aacc2dZTRhN24wMz0#YmAxODxoMzQ#626f1c7d",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00210100",
-  "License" : "7c979204a41gc858f`bg1f75228079b9",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100025",
+    "License" : "c1278cd7MmE4OzAwYmk#NTVoNGJoYmE#df9afd5c",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "00250001",
-  "License" : "327b4c5fa44cf;<kf`gg4d>g08d463b1",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100026",
+    "License" : "0507eccbYDNjMGAxZGs#Z2czPzJpZGA#e79b679f",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "04520001",
-  "License" : "a3843b26b`37b80me0g40g2a33f7da66",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100027",
+    "License" : "93e4993cM2cwM29qPj8#NDNgPD0yPjU#ca1662f5",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05120001",
-  "License" : "55cfc964bdfc`<`0e56`2cb<57fd9c70",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00100028",
+    "License" : "9f93e01bZWEwYGVpN2M#YjVgbzcxN2Y#e01ebfbd",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05190001",
-  "License" : "1a5090f1b3437=50ebd;eb7<3e92fd30",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00200001",
+    "License" : "557f0d32MGxiNm9pZz0#NzgxOT0xZTE#962c1bcf",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05320001",
-  "License" : "d22f1cf1f273a;60ace03d4<97ec34f5",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00200002",
+    "License" : "aff7fc13MjcwZTQ:PW8#NWNjamZnP2A#4d0faec6",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05710001",
-  "License" : "a77e5e4f2a3`c>7?50e`1a53d52cd926",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00200003",
+    "License" : "2983c957PGZmYjM7Nzw#OzI1bWFjNTI#ede03d15",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05910001",
-  "License" : "947cbb9d2am1205>5051`o72f5757488",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00200004",
+    "License" : "6015daf6NWVlN24wYG8#MjE2ODxoYmY#4afb90c7",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05910002",
-  "License" : "2c4ae417a49`a113fea`3n3<de546007",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00200005",
+    "License" : "fca4ecabMGw6OzU6PD4#NzhpNGdiPjY#d1dc35d7",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "07550001",
-  "License" : "088f90995f3d`n0<25g`21207238faec",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210002",
+    "License" : "5bdfec67MGUwN2Y6NTs#NzFjOTRiNzQ#b5f5e61b",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "07550002",
-  "License" : "f2dd57111c0g31di60dcanffdddb2c32",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210003",
+    "License" : "1bfcb85eZzQzYGRuYz8#YGBgbjY2YTE#3ad0d0ac",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "H85200001",
-  "License" : "200b95d6\u001ee58f10la9a;4n2aef8eb1b9",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210004",
+    "License" : "ae76c540YGxmOjNqYTQ#Zzg1NGEyYz0#0c0867a6",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05910001",
-  "License" : "947cbb9d2am1205>5051`o72f5757488",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210005",
+    "License" : "1d97b0c7NzQyYWI8Zz4#MGBhbzBkZTY#c33702b3",
+    "Expiration Date" : "20180101"
   },
   {
-  "UserID" : "ty4e13f85911a44a75",
-  "BuildingID" : "05910002",
-  "License" : "2c4ae417a49`a113fea`3n3<de546007",
-  "Expiration Date" : "20160601"
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210006",
+    "License" : "1a702923PTNnYDJsNDc#Omc0bmA0Njw#6fee65ae",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210008",
+    "License" : "3cdc54e8MjQ1ZDBsYWc#NWBmamI0Y2I#a38cb9ed",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210009",
+    "License" : "caed01d4YmRgYW4wY2I#ZTAzbzxoYWY#0ab1279e",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210010",
+    "License" : "d4903cfcNDRhNGU8Nj4#M2AyOjdkNTM#4e92fc43",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210001",
+    "License" : "9bd3e773MzA1MGRqPTA#NGRmPjYyPzw#fcb4f5c0",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210100",
+    "License" : "638bd729YTQxZ2M4NTg#ZmBiaTFhNzU#2f6f92e8",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210011",
+    "License" : "f1e6bd83PGcxOmUwZmw#OzNiNDdoZWA#d86c84a0",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210013",
+    "License" : "3bceb69bZzRlMmc6Mz8#YGA2PDViMDE#5b437a6e",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210014",
+    "License" : "07455e48ZjdhNGRpMGw#YWMyOjYxM2U#420b0e0b",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210015",
+    "License" : "f1fd7f25YWU6Z285PT0#ZjFpaT1hPjU#59c6b5ef",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210016",
+    "License" : "5df7508eYGczMWY6ND4#ZzNgPzRiNzU#80d6892f",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210017",
+    "License" : "ccec2580M2QwO2VqMGg#NDBjNTcyM2I#60d77451",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210018",
+    "License" : "26db2af1ZzA3NzJuNTM#YGRkOWA2NjY#101ec55a",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210019",
+    "License" : "0b1ada89NzQ0MWQ5ZTI#MGBnPzZhZjY#e995a475",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210021",
+    "License" : "c76832f5NGAxZmEwMDg#MzRiaDNoMDQ#4e02463a",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210022",
+    "License" : "7e073f39YmZlO24:Zjg#ZTI2NTxnZjc#e7792626",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210023",
+    "License" : "0577cc43YTE6M2dsNz4#ZmVpPTU0NzA#0d05aa06",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210024",
+    "License" : "29919d33YjQ0O25uMTo#ZWBnNTw2MTM#71c1765f",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210012",
+    "License" : "960d0d71YTM0ZDM7YGo#ZmdnamFjY2U#d1cdee85",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210025",
+    "License" : "8e30acd5MGxhN2JqNG4#NzgyOTAyNGY#0b918072",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210026",
+    "License" : "d18afa31Z2c3ZGY8Ymw#YDNkajRkYmc#2aa2d030",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210027",
+    "License" : "9a9c48b5ZmRnZ24+NWo#YTA0aTxmNWA#23e01c7f",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210029",
+    "License" : "329a8f34M2U1Z2E9NjU#NDFmaTNlNjE#ebdc8bf9",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00210020",
+    "License" : "f906a88cMzBnYW9qNj4#NGQ0bz0yNjM#798209ff",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00250001",
+    "License" : "e29d874aYTQ0Y2Y7PGs#ZmBnaTRjPmc#7e1cb599",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "04520001",
+    "License" : "16b66fc3YmAzN2I4MG0#ZTBnOjBgMmE#a5654e77",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05120001",
+    "License" : "dbfc8bd6YmRmY2A8YDA#ZTU2bjJkYjw#7bd55422",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05120002",
+    "License" : "88eb0a2dNGg3MGJsZzw#MzlnPTA0ZTM#6deeb15a",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05120003",
+    "License" : "33f9e34fN2VhOGFtNmw#MDQxNTM1NGI#fd401aa4",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05120004",
+    "License" : "16fc2d7eNWU5YDM4PG4#MjRpbWFgPmc#275d1d77",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05190001",
+    "License" : "3546a214YjM0Mzc9NTA#ZWJkNWVlNzw#49fee001",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05320001",
+    "License" : "864f42b8ZjI3M2E7NjA#YWNlPjNjNDw#4022d416",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05320002",
+    "License" : "86ed3652MzNgZTQxYzs#NGIyaGZpYTQ#2bb52783",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05320003",
+    "License" : "662ad644YGNmNGZqMTs#ZzI0OTQyMzU#589aa003",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05710001",
+    "License" : "54096704MmEzYGM+Nz8#NTBlbjFmNTM#1645d3f3",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05710002",
+    "License" : "813fd3d0NmYwOzdrZzk#MTdmNWUzZTY#d5959eb3",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05710003",
+    "License" : "fb1c32efZTU+MG4xPTk#YmRoPjxpPzc#4a3c218e",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05910001",
+    "License" : "6f1de0ecMmFtMTIwNT4#NTA1P2BoNzI#f8ff7ad5",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05910002",
+    "License" : "7d90f656YTQ5YGExMTM#ZmVhbjNpMzw#a635246f",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550001",
+    "License" : "033373b0NWYzZGBuMDw#MjVnbjI2MjA#7e0baa20",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550002",
+    "License" : "30596e5fMWMwZzMxZGk#NjBkbWFpZmY#93ee4c31",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550003",
+    "License" : "dc78457fZWRhNm9qYTM#Yjc1PD0yYz0#df2196fc",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550004",
+    "License" : "89382a74ZWs8MGUwNzU#YjhoOjdoNTw#e61769f2",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550005",
+    "License" : "33ba2d34N2YxM2duPG8#MDVlOTU2Pmc#4eab2c8b",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550006",
+    "License" : "4a7b9338MGEyZWc7Y2w#NzJmbzVjYWc#a0693dc5",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550008",
+    "License" : "dd587d8cNTBgNGE4Y2M#MmM0PjNgYWY#a343ac4b",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550009",
+    "License" : "b10ccfb0YTdnZDQwNGQ#ZmQzbmZoNmA#051c7d96",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550010",
+    "License" : "e41d1e73YGY0NTM8Nzg#ZzVgP2FkNDU#9f2ab0c4",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550007",
+    "License" : "2866f4dePTMxMzA:Zjg#OmBlOWJnZDI#5cb99b87",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07550011",
+    "License" : "9fdfd53dPTMzNG5sZmo#OmBnPjw0ZWY#12ebe27a",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "H8520001",
+    "License" : "3ff55987Hjg8ZTQxYWo#YWRoaGZpY2Y#dfc1db68",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00290001",
+    "License" : "f19a2676ZmYxP2NrNGw#YTJiOTEzNmA#48112651",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "M8530001",
+    "License" : "126b025dH29gMjc4M2s#ZTM0PmVgMWc#e1b1e1b7",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "M8530002",
+    "License" : "a3abb476QT40MG5qMTw#O2JgPDwyMzM#162de0ef",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05140001",
+    "License" : "c71345c2PGY5M25tZjo#OzdpODw1ZDY#4f910ae1",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05790001",
+    "License" : "8cc78bc7ZmM+PmU9N20#YTJoODdlNWE#66266751",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00230001",
+    "License" : "ff67687bZWQ1ZjM9Mz8#YjBmamFlMTM#8cfe032b",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00230002",
+    "License" : "890febd2NTYzYTJrMjI#MmJgbWAzMD0#1b6fd230",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00230004",
+    "License" : "6061f7f0Mjc7MzRrYD0#NWNoP2YzYjQ#890fe8e8",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00230005",
+    "License" : "021aa875M2NnYjc+MWo#NDc0bmVmM2I#100bd98d",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00230003",
+    "License" : "6b94d6acMWA6OWY+Nzg#NjRpNTRmNTY#da4abc34",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "06330001",
+    "License" : "b5fbb143MGc7Y287Mj0#NzVpbz1jMDE#222c6dd7",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00240001",
+    "License" : "c5918c40YjQ3MWRrPTo#ZWBkOjYzPzY#82f47c60",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "00280001",
+    "License" : "904a1016YWFgPG5rYD8#ZjUzOzwzYjM#9dceee88",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "07570001",
+    "License" : "d1e62f93NWs3ZWZsNWk#MjhjbTQ0N2U#6798cd58",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "05100001",
+    "License" : "d1aa0507PWg1NWM:ND0#OjllOjFnNjE#8142d4ff",
+    "Expiration Date" : "20180101"
+  },
+  {
+    "UserID" : "ty4e13f85911a44a75",
+    "BuildingID" : "03120001",
+    "License" : "a4e20218MTc1Z28wZzk#NmBlaj1oZTU#40635089",
+    "Expiration Date" : "20180101"
   }
-  ]
+]

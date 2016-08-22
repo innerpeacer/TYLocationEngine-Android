@@ -174,19 +174,31 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	}
 
 	@Override
-	public void locationChanged(TYLocalPoint lp) {
+	public void locationChanged(TYLocalPoint newLocation) {
 		lastTimeLocationUpdated = System.currentTimeMillis();
 
-		if (lp.getFloor() == 0) {
+		if (newLocation.getFloor() == 0) {
 			if (lastLocation == null) {
-				lp.setFloor(1);
+				newLocation.setFloor(1);
 			} else {
-				lp.setFloor(lastLocation.getFloor());
+				newLocation.setFloor(lastLocation.getFloor());
 			}
 		}
 
-		notifyLocationUpdated(lp);
-		lastLocation = lp;
+		notifyLocationUpdated(newLocation);
+		lastLocation = newLocation;
+	}
+
+	@Override
+	public void immediateLocationChanged(TYLocalPoint immediateLocation) {
+		if (immediateLocation.getFloor() == 0) {
+			if (lastLocation == null) {
+				immediateLocation.setFloor(1);
+			} else {
+				immediateLocation.setFloor(lastLocation.getFloor());
+			}
+		}
+		notifyImmediateLocationUpdated(immediateLocation);
 	}
 
 	@Override
@@ -276,6 +288,17 @@ public class TYLocationManager implements IPXLocationEngineListener {
 				TYLocalPoint lp);
 
 		/**
+		 * 位置更新事件回调，位置更新并返回新的位置结果 （此处位置结果没有结合传感器数据，建议用于车行场景）
+		 * 
+		 * @param locationManager
+		 *            定位引擎实例
+		 * @param lp
+		 *            新的位置结果
+		 */
+		void didUpdateImmediateLocation(TYLocationManager locationManager,
+				TYLocalPoint lp);
+
+		/**
 		 * 位置更新失败事件回调
 		 * 
 		 * @param locationManager
@@ -336,6 +359,12 @@ public class TYLocationManager implements IPXLocationEngineListener {
 	private void notifyLocationUpdated(TYLocalPoint lp) {
 		for (TYLocationManagerListener listener : locationListeners) {
 			listener.didUpdateLocation(this, lp);
+		}
+	}
+
+	private void notifyImmediateLocationUpdated(TYLocalPoint lp) {
+		for (TYLocationManagerListener listener : locationListeners) {
+			listener.didUpdateImmediateLocation(this, lp);
 		}
 	}
 

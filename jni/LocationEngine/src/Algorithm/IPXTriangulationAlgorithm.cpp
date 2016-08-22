@@ -36,41 +36,49 @@ IPXPoint IPXTriangulationAlgorithm::calculateOneBeacon(const IPXScannedBeacon *b
 {
     if (beacon->getProximity() == IPXProximityImmediate
         || beacon->getProximity() == IPXProximityNear) {
-        IPXPublicBeacon pb = GetPublicBeacon(*beacon);
-        IPXPoint location = pb.getLocation();
-        return IPXPoint(location);
+        if (HasPublicBeacon(*beacon)) {
+            IPXPublicBeacon pb = GetPublicBeacon(*beacon);
+            IPXPoint location = pb.getLocation();
+            return IPXPoint(location);
+        }
     }
     return INVALID_POINT;
 }
 
 IPXPoint IPXTriangulationAlgorithm::calculateTwoBeacons(const IPXScannedBeacon *b1, const IPXScannedBeacon *b2)
 {
-    const IPXPublicBeacon pb1 = GetPublicBeacon(*b1);
-    const IPXPublicBeacon pb2 = GetPublicBeacon(*b2);
-    
-    IPXPoint p1 = pb1.getLocation();
-    IPXPoint p2 = pb2.getLocation();
-    
-    return pointFor(p1, b1->getAccuracy(), p2, b2->getAccuracy());
+    if (HasPublicBeacon(*b1) && HasPublicBeacon(*b2)) {
+        const IPXPublicBeacon pb1 = GetPublicBeacon(*b1);
+        const IPXPublicBeacon pb2 = GetPublicBeacon(*b2);
+
+        IPXPoint p1 = pb1.getLocation();
+        IPXPoint p2 = pb2.getLocation();
+
+        return pointFor(p1, b1->getAccuracy(), p2, b2->getAccuracy());
+    }
+    return  INVALID_POINT;
 }
 
 IPXPoint IPXTriangulationAlgorithm::singleTriangulation(const IPXScannedBeacon *b1, const IPXScannedBeacon *b2,const IPXScannedBeacon *b3)
 {
-    const IPXPublicBeacon pb1 = GetPublicBeacon(*b1);
-    const IPXPublicBeacon pb2 = GetPublicBeacon(*b2);
-    const IPXPublicBeacon pb3 = GetPublicBeacon(*b3);
-    
-    IPXPoint p1 = pb1.getLocation();
-    IPXPoint p2 = pb2.getLocation();
-    IPXPoint p3 = pb3.getLocation();
-    
-    IPXPoint p12 = pointFor(p1, b1->getAccuracy(), p2, b2->getAccuracy());
-    IPXPoint p13 = pointFor(p1, b1->getAccuracy(), p3, b3->getAccuracy());
-    
-    IPXPoint result = pointFor(p12, b2->getAccuracy(), p13, b3->getAccuracy());
-    result.setFloor(pb1.getLocation().getFloor());
-    
-    return result;
+    if (HasPublicBeacon(*b1) && HasPublicBeacon(*b2) && HasPublicBeacon(*b3)) {
+        const IPXPublicBeacon pb1 = GetPublicBeacon(*b1);
+        const IPXPublicBeacon pb2 = GetPublicBeacon(*b2);
+        const IPXPublicBeacon pb3 = GetPublicBeacon(*b3);
+
+        IPXPoint p1 = pb1.getLocation();
+        IPXPoint p2 = pb2.getLocation();
+        IPXPoint p3 = pb3.getLocation();
+
+        IPXPoint p12 = pointFor(p1, b1->getAccuracy(), p2, b2->getAccuracy());
+        IPXPoint p13 = pointFor(p1, b1->getAccuracy(), p3, b3->getAccuracy());
+
+        IPXPoint result = pointFor(p12, b2->getAccuracy(), p13, b3->getAccuracy());
+        result.setFloor(pb1.getLocation().getFloor());
+
+        return result;
+    }
+    return INVALID_POINT;
 }
 
 IPXPoint IPXTriangulationAlgorithm::tripleTriangulation(const IPXScannedBeacon *b1, const IPXScannedBeacon *b2, const IPXScannedBeacon *b3)
@@ -192,9 +200,10 @@ namespace Innerpeacer {
                     ySum += iter->getY();
                 }
                 
-                IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
-                
-                return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                if (HasPublicBeacon(*(nearestBeacons.at(0)))) {
+                    IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
+                    return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                }
             }
             
             return INVALID_POINT;
@@ -229,9 +238,10 @@ namespace Innerpeacer {
                     ySum += iter->getY();
                 }
                 
-                IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
-                
-                return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                if (HasPublicBeacon(*(nearestBeacons.at(0)))) {
+                    IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
+                    return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                }
             }
             
             return INVALID_POINT;
@@ -299,9 +309,10 @@ namespace Innerpeacer {
                     ySum += iter->getY();
                 }
                 
-                IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
-                
-                return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                if (HasPublicBeacon(*(nearestBeacons.at(0)))) {
+                    IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
+                    return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                }
             }
             return INVALID_POINT;
         }
@@ -334,9 +345,10 @@ namespace Innerpeacer {
                     ySum += iter->getY();
                 }
                 
-                IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
-                
-                return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                if (HasPublicBeacon(*(nearestBeacons.at(0)))) {
+                    IPXPublicBeacon npb = GetPublicBeacon(*(nearestBeacons.at(0)));
+                    return IPXPoint(xSum/pointCount, ySum/pointCount, npb.getLocation().getFloor());
+                }
             }
             return INVALID_POINT;
         }
@@ -344,7 +356,7 @@ namespace Innerpeacer {
     }
 }
 
-IPXTriangulationAlgorithm *CreateTriangulationAlgorithm(const std::vector<IPXPublicBeacon> &beacons, IPXAlgorithmType type)
+IPXTriangulationAlgorithm *CreateTriangulationAlgorithm(const vector<IPXPublicBeacon> &beacons, IPXAlgorithmType type)
 {
     switch (type) {
         case IPXSingle:
@@ -364,7 +376,8 @@ IPXTriangulationAlgorithm *CreateTriangulationAlgorithm(const std::vector<IPXPub
             break;
             
         default:
-            return nullptr;
+            return NULL;
             break;
     }
+    return NULL;
 }

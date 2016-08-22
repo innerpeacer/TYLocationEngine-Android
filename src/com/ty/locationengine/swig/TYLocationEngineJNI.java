@@ -75,6 +75,7 @@ public class TYLocationEngineJNI {
   public final static native void ILocationEngine_addStepEvent(long jarg1, ILocationEngine jarg1_);
   public final static native void ILocationEngine_reset(long jarg1, ILocationEngine jarg1_);
   public final static native long ILocationEngine_getLocation(long jarg1, ILocationEngine jarg1_);
+  public final static native long ILocationEngine_getImmediateLocation(long jarg1, ILocationEngine jarg1_);
   public final static native void delete_ILocationEngine(long jarg1);
   public final static native long CreateIPXStepBaseTriangulationEngine(int jarg1);
   public final static native long IPXPublicBeacon_SWIGUpcast(long jarg1);

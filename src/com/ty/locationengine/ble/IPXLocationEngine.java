@@ -69,9 +69,8 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 		initAlgorithm();
 
 		// for (int i = 0; i < publicBeaconArray.size(); ++i) {
-		// NPXPublicBeacon pb = publicBeaconArray.valueAt(i);
-		// Log.i(TAG, "Major: " + pb.getMajor() + ", Minor " +
-		// pb.getMinor());
+		// IPXPublicBeacon pb = publicBeaconArray.valueAt(i);
+		// Log.i(TAG, "Major: " + pb.getMajor() + ", Minor " + pb.getMinor());
 		// }
 
 		beaconManager = new BeaconManager(context);
@@ -262,19 +261,29 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 		// Log.i(TAG, "scanned beacon vector: " + sbpVector.size());
 
 		locationEngine.processBeacons(sbpVector);
-		IPXPoint p = locationEngine.getLocation();
+		IPXPoint currentLocation = locationEngine.getLocation();
+		IPXPoint immediateLocation = locationEngine.getImmediateLocation();
 
-		if (p.equal_point(TYLocationEngine.getINVALID_POINT())) {
+		int currentFloor = calculateCurrentFloor();
+
+		if (currentLocation.equal_point(TYLocationEngine.getINVALID_POINT())) {
 			// Log.i(TAG, "INVALID_POINT");
 		} else {
-			TYLocalPoint lp = new TYLocalPoint(p.getX(), p.getY(), p.getFloor());
-
-			int currentFloor = calculateCurrentFloor();
+			TYLocalPoint lp = new TYLocalPoint(currentLocation.getX(),
+					currentLocation.getY(), currentLocation.getFloor());
 			lp.setFloor(currentFloor);
-
 			notifyLocationChanged(lp);
-			// Log.i(TAG,
-			// lp.getX() + ", " + lp.getY() + " in Floor " + lp.getFloor());
+		}
+
+		if (immediateLocation.equal_point(TYLocationEngine.getINVALID_POINT())) {
+			Log.i(TAG, "immediateLocation: INVALID_POINT");
+		} else {
+			Log.i(TAG, "immediateLocation: " + immediateLocation);
+
+			TYLocalPoint lp = new TYLocalPoint(immediateLocation.getX(),
+					immediateLocation.getY(), immediateLocation.getFloor());
+			lp.setFloor(currentFloor);
+			notifyImmediateLocationChanged(lp);
 		}
 	}
 
@@ -367,6 +376,8 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 		// void locationChanged(IPXLocationEngine engine, TYLocalPoint lp);
 		void locationChanged(TYLocalPoint lp);
 
+		void immediateLocationChanged(TYLocalPoint lp);
+
 		// void headingChanged(IPXLocationEngine engine, double newHeading);
 		void headingChanged(double newHeading);
 
@@ -386,6 +397,12 @@ class IPXLocationEngine implements RangingListener, TYStepListener,
 	public void removeLocationEngineListener(IPXLocationEngineListener listener) {
 		if (locationListeners.contains(listener)) {
 			locationListeners.remove(listener);
+		}
+	}
+
+	private void notifyImmediateLocationChanged(TYLocalPoint lp) {
+		for (IPXLocationEngineListener listener : locationListeners) {
+			listener.immediateLocationChanged(lp);
 		}
 	}
 

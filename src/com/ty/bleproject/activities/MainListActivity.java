@@ -27,15 +27,15 @@ public class MainListActivity extends HelperListActivity {
 		if (!new File(mapRootDir).exists()) {
 			copyFileIfNeeded();
 		}
-		copyFileIfNeeded();
+		// copyFileIfNeeded();
 
 		LicenseManager.loadContent(FileHelper.readStringFromAsset(this,
 				"Licenses.json"));
 
 		TYUserDefaults settings = new TYUserDefaults(this);
 
-		settings.setDefaultCityID("0021");
-		settings.setDefaultBuildingID("00210100");
+		settings.setDefaultCityID("0010");
+		settings.setDefaultBuildingID("00100025");
 		// settings.setDefaultBuildingID("00210004");
 		// settings.setDefaultBuildingID("002199999");
 		//
